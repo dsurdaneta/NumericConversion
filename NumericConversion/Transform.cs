@@ -6,6 +6,7 @@ namespace NumericConversion
     public class Transform
     {
         protected static string _error;
+        internal const string L = "1000000";
 
         public string ValidationMessage
         {
@@ -17,14 +18,22 @@ namespace NumericConversion
             _error = "";
         }
 
-        public static int ToBinaryNumber(int number)
+        public static long ToBinaryNumber(int number)
         {
-            return Convert.ToInt32(Convert.ToString(number, 2));;
+            long n = -1;
+            string s = Convert.ToString(number, 2);
+            if(s.Length <= L.Length)
+                n = Convert.ToInt64(s);
+            return n;
         }
 
-        public static int ToOctalNumber(int number)
+        public static long ToOctalNumber(int number)
         {
-            return Convert.ToInt32(Convert.ToString(number, 8));
+            long n = -1;
+            string s = Convert.ToString(number, 2);
+            if (s.Length <= L.Length)
+                n = Convert.ToInt64(Convert.ToString(number, 8));
+            return n;
         }
 
         public static string ToHex(int number)
