@@ -25,14 +25,15 @@ namespace NumericConversion
             if(s.Length <= L.Length)
                 n = Convert.ToInt64(s);
             else
-                _error = "number " + number + " length not supported";
+                _error = $"number {number} length not supported";
+                //_error = "number " + number + " length not supported";
 
             return n;
         }
 
         public static string IntegerToBinaryString(int number)
         {
-            return IntegerToBinaryLong(number).ToString();
+            return Convert.ToString(number, 2); 
         }
 
         public static long IntegerToOctalLong(int number)
@@ -42,7 +43,8 @@ namespace NumericConversion
             if (s.Length <= L.Length)
                 n = Convert.ToInt64(Convert.ToString(number, 8));
             else
-                _error = "number " + number + " length not supported";
+                _error = $"number {number} length not supported";
+                 //_error = "number " + number + " length not supported";
 
             return n;
         }
