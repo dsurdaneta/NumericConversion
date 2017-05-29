@@ -17,7 +17,7 @@ namespace ConsoleApplication1
             Console.WriteLine($"Binary conversion: {baseTwo}");
             Console.WriteLine($"Octal conversion: {baseEight}");
             Console.WriteLine($"Hexadecimal conversion: {base16}");
-
+            
             Console.ReadKey();
         }
     }
