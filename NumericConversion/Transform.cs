@@ -23,11 +23,14 @@ namespace DsuDev.NumericConversion
         {
             long binaryLong = -1;
             string binaryString = Convert.ToString(number, 2);
-            if(binaryString.Length <= BinaryStringMaxLength.Length)
+            if (binaryString.Length <= BinaryStringMaxLength.Length)
                 binaryLong = Convert.ToInt64(binaryString);
             else
-                _error = $"number {number} length not supported";
+            {
+                _error = $"number {number} length not supported, it has to be less than {BinaryStringMaxLength.Length} digits";
                 //_error = "number " + number + " length not supported";
+                throw new ArgumentOutOfRangeException(nameof(number), number, _error);
+            }
 
             return binaryLong;
         }

@@ -15,6 +15,13 @@ namespace NumericConversion.Test
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void IntToBinaryLongTooLongExceptionTest()
+        {
+            long baseTwo = Transform.IntegerToBinaryLong(10000003);
+        }
+
+        [TestMethod]
         public void IntToOctalLongTest()
         {
             long baseEight = Transform.IntegerToOctalLong(8);
@@ -26,6 +33,13 @@ namespace NumericConversion.Test
         {
             var hexString = Transform.IntegerToHexString(25);
             Assert.IsInstanceOfType(hexString,typeof(string));
+        }
+
+        [TestMethod]
+        public void IntToBinaryStringTest()
+        {
+            var baseTwo = Transform.IntegerToBinaryString(5);
+            Assert.AreEqual(baseTwo, "101");
         }
     }
 }
