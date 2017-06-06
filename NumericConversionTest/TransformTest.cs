@@ -1,8 +1,8 @@
 ﻿using System;
+using DsuDev.NumericConversion;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NumericConversion;
 
-namespace NumericConversionTest
+namespace NumericConversion.Test
 {
     [TestClass]
     public class TransformTest

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace NumericConversion
+namespace DsuDev.NumericConversion
 {
     public class Transform
     {

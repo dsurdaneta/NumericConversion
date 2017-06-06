@@ -10,9 +10,9 @@ namespace ConsoleApplication1
             Console.WriteLine("Enter a number: ");
             int number = Convert.ToInt32(Console.ReadLine());
 
-            long baseTwo = NumericConversion.Transform.IntegerToBinaryLong(number);
-            long baseEight = NumericConversion.Transform.IntegerToOctalLong(number);
-            string base16 = NumericConversion.Transform.IntegerToHexString(number);
+            long baseTwo = DsuDev.NumericConversion.Transform.IntegerToBinaryLong(number);
+            long baseEight = DsuDev.NumericConversion.Transform.IntegerToOctalLong(number);
+            string base16 = DsuDev.NumericConversion.Transform.IntegerToHexString(number);
 
             Console.WriteLine($"Binary conversion: {baseTwo}");
             Console.WriteLine($"Octal conversion: {baseEight}");
