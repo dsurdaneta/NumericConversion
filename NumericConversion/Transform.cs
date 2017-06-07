@@ -5,9 +5,10 @@ namespace DsuDev.NumericConversion
 {
     public class Transform
     {
-        protected static string _error;
-        internal const string BinaryStringMaxLength = "1000000";
+        public const int BinaryStringMaxLength = 19;
         internal const string HexPrefix = "0x";
+
+        protected static string _error;
 
         public string ValidationMessage
         {
@@ -23,11 +24,11 @@ namespace DsuDev.NumericConversion
         {
             long binaryLong = -1;
             string binaryString = Convert.ToString(number, 2);
-            if (binaryString.Length <= BinaryStringMaxLength.Length)
+            if (binaryString.Length <= BinaryStringMaxLength)
                 binaryLong = Convert.ToInt64(binaryString);
             else
             {
-                _error = $"number {number} length not supported, it has to be less than {BinaryStringMaxLength.Length} digits";
+                _error = $"number ({number}) length not supported, it has to be less than {BinaryStringMaxLength} digits";
                 //_error = "number " + number + " length not supported";
                 throw new ArgumentOutOfRangeException(nameof(number), number, _error);
             }
@@ -44,11 +45,14 @@ namespace DsuDev.NumericConversion
         {
             long octalLong = -1;
             string binaryString = Convert.ToString(number, 2);
-            if (binaryString.Length <= BinaryStringMaxLength.Length)
+            if (binaryString.Length <= BinaryStringMaxLength)
                 octalLong = Convert.ToInt64(Convert.ToString(number, 8));
             else
-                _error = $"number {number} length not supported";
-                 //_error = "number " + number + " length not supported";
+            {
+                _error = $"number ({number}) length not supported, it has to be less than {BinaryStringMaxLength} digits";
+                //_error = "number " + number + " length not supported";
+                throw new ArgumentOutOfRangeException(nameof(number), number, _error);
+            }
 
             return octalLong;
         }
