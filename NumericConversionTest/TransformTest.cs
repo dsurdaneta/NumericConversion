@@ -36,6 +36,20 @@ namespace NumericConversion.Test
         }
 
         [TestMethod]
+        public void HexStringWithOutPrefixTest()
+        {
+            var hexString = Transform.IntegerToHexString(27, false);
+            Assert.IsFalse(hexString.StartsWith("0x"));
+        }
+
+        [TestMethod]
+        public void HexPrefixTest()
+        {
+            var hexString = Transform.IntegerToHexString(28, true);
+            Assert.IsTrue(hexString.StartsWith("0x"));
+        }
+
+        [TestMethod]
         public void IntToBinaryStringTest()
         {
             var baseTwo = Transform.IntegerToBinaryString(5);
