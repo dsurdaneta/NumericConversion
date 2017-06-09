@@ -40,5 +40,16 @@ namespace NumericConversion.Test
             romanNumeral.GetRomanValueFromArabicNum(5000);
             // Assert
         }
+
+        [TestMethod]
+        public void RomanNumeral_ArabicIsInt()
+        {
+            // Arrange
+            var romanNumeral = new RomanNumeral();
+
+            // Act
+            // Assert
+            Assert.IsInstanceOfType(romanNumeral.GetArabicFromRoman("DUX"), typeof(int));
+        }
     }
 }

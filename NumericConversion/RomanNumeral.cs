@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,6 +42,18 @@ namespace DsuDev.NumericConversion
 
         public int GetArabicFromRoman(string romanNumeral)
         {
+            if (string.IsNullOrEmpty(romanNumeral))
+            {
+                throw  new ArgumentNullException(nameof(romanNumeral));
+            }
+
+            var notAllowedValues = romanNumeral.Where(x => !baseNumbers.ContainsValue(x.ToString())).ToList();
+
+            if (notAllowedValues.Count > 0)
+            {
+                throw new KeyNotFoundException($"{romanNumeral} contains not allowed characters");
+            }
+
             throw new NotImplementedException();
         }
     }
