@@ -42,6 +42,18 @@ namespace NumericConversion.Test
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void RomanNumeral_MinRange()
+        {
+            // Arrange
+            var romanNumeral = new RomanNumeral();
+
+            // Act
+            romanNumeral.GetRomanValueFromArabicNum(-7);
+            // Assert
+        }
+
+        [TestMethod]
         public void RomanNumeral_ArabicIsInt()
         {
             // Arrange

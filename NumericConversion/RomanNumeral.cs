@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -37,7 +36,11 @@ namespace DsuDev.NumericConversion
                 throw new ArgumentOutOfRangeException($"{number} must be a positive integer of value less than {MaxNumber}");
             }
 
-            throw new NotImplementedException();
+            var value = "";
+            var current = number;
+            var keys = baseNumbers.AsEnumerable().Reverse().ToArray();
+
+            return value;
         }
 
         public int GetArabicFromRoman(string romanNumeral)

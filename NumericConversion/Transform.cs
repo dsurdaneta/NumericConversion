@@ -8,12 +8,9 @@ namespace DsuDev.NumericConversion
         public const int BinaryStringMaxLength = 19;
         internal const string HexPrefix = "0x";
 
-        protected static string _error;
+        private static string _error;
 
-        public string ValidationMessage
-        {
-            get { return _error; }
-        }
+        public string ValidationMessage => _error;
 
         public Transform()
         {
