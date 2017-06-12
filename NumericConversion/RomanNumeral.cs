@@ -36,9 +36,21 @@ namespace DsuDev.NumericConversion
                 throw new ArgumentOutOfRangeException($"{number} must be a positive integer of value less than {MaxNumber}");
             }
 
-            var value = "";
-            var current = number;
+            string value = "";
+            int current = number, i =0;
             var keys = baseNumbers.AsEnumerable().Reverse().ToArray();
+
+            while (current > 0)
+            {
+                var item = keys[i];
+                if (current < item.Key)
+                {
+                    i++;
+                    continue;
+                }
+                current -= item.Key;
+                value += item.Value;
+            }
 
             return value;
         }
