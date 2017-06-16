@@ -14,7 +14,13 @@ namespace DsuDev.NumericConversion
 
         public string GetFizzBuzz(int number)
         {
-            throw new NotImplementedException();
+            string result = number.ToString();
+            if (number % 3 == 0)
+            {
+                result = Fizz;
+            }
+
+            return result;
         }
     }
 }
