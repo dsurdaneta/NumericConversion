@@ -64,7 +64,7 @@ namespace NumericConversion.Test
             var expected = FizzBuzz.Fizz + FizzBuzz.Buzz;
 
             // Act
-            var result = fizzBuzz.GetFizzBuzz(5);
+            var result = fizzBuzz.GetFizzBuzz(15);
 
             // Assert
             Assert.AreEqual(expected, result);
@@ -77,10 +77,38 @@ namespace NumericConversion.Test
             var fizzBuzz = new FizzBuzz();
 
             // Act
-            var result = fizzBuzz.GetFizzBuzz(3);
+            var result = fizzBuzz.GetFizzBuzz(7);
 
             // Assert
             Assert.AreEqual(FizzBuzz.Whizz, result);
+        }
+
+        [TestMethod]
+        public void FizzBuzz_isFizzWhizz()
+        {
+            // Arrange
+            var fizzBuzz = new FizzBuzz();
+            var expected = FizzBuzz.Fizz + FizzBuzz.Whizz;
+
+            // Act
+            var result = fizzBuzz.GetFizzBuzz(21);
+
+            // Assert
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void FizzBuzz_isBuzzWhizz()
+        {
+            // Arrange
+            var fizzBuzz = new FizzBuzz();
+            var expected = FizzBuzz.Buzz + FizzBuzz.Whizz;
+
+            // Act
+            var result = fizzBuzz.GetFizzBuzz(35);
+
+            // Assert
+            Assert.AreEqual(expected, result);
         }
     }
 }
