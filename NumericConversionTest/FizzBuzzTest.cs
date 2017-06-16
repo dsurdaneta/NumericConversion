@@ -110,5 +110,19 @@ namespace NumericConversion.Test
             // Assert
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        public void FizzBuzz_isFizBuzzWhizz()
+        {
+            // Arrange
+            var fizzBuzz = new FizzBuzz();
+            var expected = FizzBuzz.Fizz + FizzBuzz.Buzz + FizzBuzz.Whizz;
+
+            // Act
+            var result = fizzBuzz.GetFizzBuzz(105);
+
+            // Assert
+            Assert.AreEqual(expected, result);
+        }
     }
 }
