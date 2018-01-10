@@ -25,10 +25,8 @@ namespace DsuDev.NumericConversion
                 binaryLong = Convert.ToInt64(binaryString);
             else
             {
-                _error = $"number ({number}) length not supported, it has to be less than {BinaryStringMaxLength} digits";
-                //_error = "number " + number + " length not supported";
-                throw new ArgumentOutOfRangeException(nameof(number), number, _error);
-            }
+				ThrowBinaryOutOfRangeException(number);
+			}
 
             return binaryLong;
         }
@@ -45,16 +43,20 @@ namespace DsuDev.NumericConversion
             if (binaryString.Length <= BinaryStringMaxLength)
                 octalLong = Convert.ToInt64(Convert.ToString(number, 8));
             else
-            {
-                _error = $"number ({number}) length not supported, it has to be less than {BinaryStringMaxLength} digits";
-                //_error = "number " + number + " length not supported";
-                throw new ArgumentOutOfRangeException(nameof(number), number, _error);
-            }
+			{
+				ThrowBinaryOutOfRangeException(number);
+			}
 
-            return octalLong;
+			return octalLong;
         }
 
-        public static string IntegerToOctalString(int number)
+		internal static void ThrowBinaryOutOfRangeException(int number)
+		{
+			_error = $"number ({number}) length not supported, it has to be less than {BinaryStringMaxLength} digits";
+			throw new ArgumentOutOfRangeException(nameof(number), number, _error);
+		}
+
+		public static string IntegerToOctalString(int number)
         {
             return Convert.ToString(number, 8);
         }
@@ -69,9 +71,6 @@ namespace DsuDev.NumericConversion
         public static string IntegerToHexString(int number, bool prefixed = true)
         {
             string hexNumber = prefixed ? HexPrefix : "";
-
-            //return Convert.ToString(number, 16).ToUpper();
-            //ToString("X") already transform to hex
             hexNumber = hexNumber + number.ToString("X").ToUpper();
 
             return hexNumber;
@@ -79,10 +78,8 @@ namespace DsuDev.NumericConversion
 
         public static int BinaryLongToInt(long binaryNumber)
         {
-            int binaryInt = -1;
-            string binaryString = Convert.ToString(binaryNumber);
-            binaryInt = Convert.ToInt32(binaryString, 2);
-            return binaryInt;
+			string binaryString = Convert.ToString(binaryNumber);
+            return Convert.ToInt32(binaryString, 2);
         }
 
         public static int BinaryStringToInt(string binaryNumber)
@@ -110,5 +107,6 @@ namespace DsuDev.NumericConversion
 
             return resultValue;
         }
+		
     }
 }

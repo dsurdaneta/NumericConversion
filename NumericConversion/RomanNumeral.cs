@@ -69,7 +69,20 @@ namespace DsuDev.NumericConversion
                 throw new KeyNotFoundException($"{romanNumeral} contains not allowed characters");
             }
 
-            throw new NotImplementedException();
+			int total = 0, lastValue = 0;
+			for (int i = romanNumeral.Length - 1; i >= 0; i--)
+			{
+				int currentValue = baseNumbers.First(x => x.Value == romanNumeral[i].ToString()).Key;
+				if (currentValue < lastValue)
+					total -= currentValue;
+				else
+				{
+					total += currentValue;
+					lastValue = currentValue;
+				}
+			}
+
+			return total;
         }
     }
 }

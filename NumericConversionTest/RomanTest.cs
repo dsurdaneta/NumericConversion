@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DsuDev.NumericConversion;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -17,18 +18,7 @@ namespace NumericConversion.Test
             // Act
             // Assert
             Assert.IsNotNull(romanNumeral);
-        }
-         
-        [TestMethod]
-        public void RomanNumeral_IsString()
-        {
-            // Arrange
-            var romanNumeral = new RomanNumeral();
-
-            // Act
-            // Assert
-            Assert.IsInstanceOfType(romanNumeral.GetRomanValueFromArabicNum(10), typeof(string));
-        }
+        }        
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
@@ -71,14 +61,31 @@ namespace NumericConversion.Test
         }
 
         [TestMethod]
-        public void RomanNumeral_ArabicIsInt()
+		[ExpectedException(typeof(KeyNotFoundException))]
+        public void RomanNumeral_ArabicKeyNotFound()
         {
             // Arrange
             var romanNumeral = new RomanNumeral();
 
-            // Act
-            // Assert
-            Assert.IsInstanceOfType(romanNumeral.GetArabicFromRoman("DUX"), typeof(int));
+			// Act
+			romanNumeral.GetArabicFromRoman("DUX");
+			// Assert
         }
-    }
+
+		[TestMethod]
+		public void Roman2Arabic_1to3()
+		{
+			// Arrange
+			var romanNumeral = new RomanNumeral();
+
+			// Act
+			var number1 = romanNumeral.GetArabicFromRoman("I");
+			var number2 = romanNumeral.GetArabicFromRoman("II");
+			var number3 = romanNumeral.GetArabicFromRoman("III");
+			// Assert
+			Assert.AreEqual(number1, 1);
+			Assert.AreEqual(number2, 2);
+			Assert.AreEqual(number3, 3);
+		}
+	}
 }
