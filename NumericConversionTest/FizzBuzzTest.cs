@@ -16,19 +16,7 @@ namespace NumericConversion.Test
             // Act
             // Assert
             Assert.IsNotNull(result);
-        }
-
-        [TestMethod]
-        public void FizzBuzz_isNumeric()
-        {
-            // Arrange
-            var fizzBuzz = new FizzBuzz();
-
-            // Act
-            var result = fizzBuzz.GetFizzBuzz(2);
-            // Assert
-            Assert.AreEqual("2", result);
-        }
+        }		      
 
         [TestMethod]
         public void FizzBuzz_isFizz()
@@ -44,7 +32,7 @@ namespace NumericConversion.Test
         }
 
         [TestMethod]
-        public void FizzBuzz_isIsBuzz()
+        public void FizzBuzz_isBuzz()
         {
             // Arrange
             var fizzBuzz = new FizzBuzz();
@@ -57,7 +45,7 @@ namespace NumericConversion.Test
         }
 
         [TestMethod]
-        public void FizzBuzz_isIsFizzBuzz()
+        public void FizzBuzz_isFizzBuzz()
         {
             // Arrange
             var fizzBuzz = new FizzBuzz();
@@ -112,7 +100,7 @@ namespace NumericConversion.Test
         }
 
         [TestMethod]
-        public void FizzBuzz_isFizBuzzWhizz()
+        public void FizzBuzz_isFizzBuzzWhizz()
         {
             // Arrange
             var fizzBuzz = new FizzBuzz();

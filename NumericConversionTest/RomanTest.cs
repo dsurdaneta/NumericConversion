@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using DsuDev.NumericConversion;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -60,6 +59,27 @@ namespace NumericConversion.Test
             Assert.AreEqual("III", number3);
         }
 
+		[TestMethod]
+		public void RomanNumeral_4to8()
+		{
+			// Arrange
+            var romanNumeral = new RomanNumeral();
+
+            // Act
+            var number4 = romanNumeral.GetRomanValueFromArabicNum(4);
+            var number5 = romanNumeral.GetRomanValueFromArabicNum(5);
+            var number6 = romanNumeral.GetRomanValueFromArabicNum(6);
+			var number7 = romanNumeral.GetRomanValueFromArabicNum(7);
+			var number8 = romanNumeral.GetRomanValueFromArabicNum(8);
+			
+			// Assert
+			Assert.AreEqual("IV", number4);
+            Assert.AreEqual("V", number5);
+            Assert.AreEqual("VI", number6);
+			Assert.AreEqual("VII", number7);
+			Assert.AreEqual("VIII", number8);
+		}
+
         [TestMethod]
 		[ExpectedException(typeof(KeyNotFoundException))]
         public void RomanNumeral_ArabicKeyNotFound()
@@ -71,6 +91,18 @@ namespace NumericConversion.Test
 			romanNumeral.GetArabicFromRoman("DUX");
 			// Assert
         }
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void RomanNumeral_ArabicNull()
+		{
+			// Arrange
+			var romanNumeral = new RomanNumeral();
+
+			// Act
+			romanNumeral.GetArabicFromRoman(null);
+			// Assert
+		}
 
 		[TestMethod]
 		public void Roman2Arabic_1to3()
@@ -86,6 +118,18 @@ namespace NumericConversion.Test
 			Assert.AreEqual(number1, 1);
 			Assert.AreEqual(number2, 2);
 			Assert.AreEqual(number3, 3);
+		}
+
+		[TestMethod]
+		public void Roman2Arabic_1427()
+		{
+			// Arrange
+			var romanNumeral = new RomanNumeral();
+
+			// Act
+			var number = romanNumeral.GetArabicFromRoman("MCDXXVII");
+			// Assert
+			Assert.AreEqual(number, 1427);
 		}
 	}
 }

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DsuDev.NumericConversion
 {
@@ -72,7 +70,8 @@ namespace DsuDev.NumericConversion
 			int total = 0, lastValue = 0;
 			for (int i = romanNumeral.Length - 1; i >= 0; i--)
 			{
-				int currentValue = baseNumbers.First(x => x.Value == romanNumeral[i].ToString()).Key;
+				string currentNumeral = romanNumeral[i].ToString();
+				int currentValue = baseNumbers.First(x => x.Value == currentNumeral).Key;
 				if (currentValue < lastValue)
 					total -= currentValue;
 				else
