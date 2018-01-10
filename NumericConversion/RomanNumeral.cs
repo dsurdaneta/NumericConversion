@@ -35,7 +35,7 @@ namespace DsuDev.NumericConversion
             }
 
             string value = "";
-            int current = number, i =0;
+            int current = number, i = 0;
             var keys = baseNumbers.AsEnumerable().Reverse().ToArray();
 
             while (current > 0)
@@ -56,22 +56,19 @@ namespace DsuDev.NumericConversion
         public int GetArabicFromRoman(string romanNumeral)
         {
             if (string.IsNullOrEmpty(romanNumeral))
-            {
                 throw  new ArgumentNullException(nameof(romanNumeral));
-            }
 
             var notAllowedValues = romanNumeral.Where(x => !baseNumbers.ContainsValue(x.ToString())).ToList();
 
             if (notAllowedValues.Count > 0)
-            {
                 throw new KeyNotFoundException($"{romanNumeral} contains not allowed characters");
-            }
 
 			int total = 0, lastValue = 0;
 			for (int i = romanNumeral.Length - 1; i >= 0; i--)
 			{
 				string currentNumeral = romanNumeral[i].ToString();
 				int currentValue = baseNumbers.First(x => x.Value == currentNumeral).Key;
+
 				if (currentValue < lastValue)
 					total -= currentValue;
 				else

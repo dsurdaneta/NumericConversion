@@ -25,10 +25,8 @@ namespace DsuDev.NumericConversion
         {
             string result = TranslateToWords(number);
 
-            if (result == "")
-            {
+            if (string.IsNullOrEmpty(result))
                 result = number.ToString();
-            }
 
             return result;
         }
@@ -40,9 +38,7 @@ namespace DsuDev.NumericConversion
             foreach (KeyValuePair<int, string> item in wordzzDictionary)
             {
                 if (number % item.Key == 0)
-                {
                     result += item.Value;
-                }
             }
 
             return result;

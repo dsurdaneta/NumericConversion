@@ -13,7 +13,6 @@ namespace NumericConversion.Test
         {
             // Arrange
             var romanNumeral = new RomanNumeral();
-
             // Act
             // Assert
             Assert.IsNotNull(romanNumeral);
@@ -25,7 +24,6 @@ namespace NumericConversion.Test
         {
             // Arrange
             var romanNumeral = new RomanNumeral();
-
             // Act
             romanNumeral.GetRomanValueFromArabicNum(5000);
             // Assert
@@ -37,7 +35,6 @@ namespace NumericConversion.Test
         {
             // Arrange
             var romanNumeral = new RomanNumeral();
-
             // Act
             romanNumeral.GetRomanValueFromArabicNum(-7);
             // Assert
@@ -48,7 +45,6 @@ namespace NumericConversion.Test
         {
             // Arrange
             var romanNumeral = new RomanNumeral();
-
             // Act
             var number1 = romanNumeral.GetRomanValueFromArabicNum(1);
             var number2 = romanNumeral.GetRomanValueFromArabicNum(2);
@@ -80,13 +76,23 @@ namespace NumericConversion.Test
 			Assert.AreEqual("VIII", number8);
 		}
 
+		[TestMethod]
+		public void RomanNumeral_3709()
+		{
+			// Arrange
+			var romanNumeral = new RomanNumeral();
+			// Act
+			var number = romanNumeral.GetRomanValueFromArabicNum(3709);
+			// Assert
+			Assert.AreEqual(number, "MMMDCCIX");
+		}
+
         [TestMethod]
 		[ExpectedException(typeof(KeyNotFoundException))]
         public void RomanNumeral_ArabicKeyNotFound()
         {
             // Arrange
             var romanNumeral = new RomanNumeral();
-
 			// Act
 			romanNumeral.GetArabicFromRoman("DUX");
 			// Assert
@@ -98,7 +104,6 @@ namespace NumericConversion.Test
 		{
 			// Arrange
 			var romanNumeral = new RomanNumeral();
-
 			// Act
 			romanNumeral.GetArabicFromRoman(null);
 			// Assert
@@ -115,9 +120,9 @@ namespace NumericConversion.Test
 			var number2 = romanNumeral.GetArabicFromRoman("II");
 			var number3 = romanNumeral.GetArabicFromRoman("III");
 			// Assert
-			Assert.AreEqual(number1, 1);
-			Assert.AreEqual(number2, 2);
-			Assert.AreEqual(number3, 3);
+			Assert.AreEqual(1, number1);
+			Assert.AreEqual(2, number2);
+			Assert.AreEqual(3, number3);
 		}
 
 		[TestMethod]
@@ -125,11 +130,10 @@ namespace NumericConversion.Test
 		{
 			// Arrange
 			var romanNumeral = new RomanNumeral();
-
 			// Act
 			var number = romanNumeral.GetArabicFromRoman("MCDXXVII");
 			// Assert
-			Assert.AreEqual(number, 1427);
+			Assert.AreEqual(1427, number);
 		}
 	}
 }

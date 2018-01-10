@@ -12,21 +12,17 @@ namespace DsuDev.NumericConversion
 
         public string ValidationMessage => _error;
 
-        public Transform()
-        {
-            _error = "";
-        }
+        public Transform() { _error = ""; }
 
         public static long IntegerToBinaryLong(int number)
         {
             long binaryLong = -1;
             string binaryString = Convert.ToString(number, 2);
+
             if (binaryString.Length <= BinaryStringMaxLength)
                 binaryLong = Convert.ToInt64(binaryString);
             else
-            {
 				ThrowBinaryOutOfRangeException(number);
-			}
 
             return binaryLong;
         }
@@ -40,12 +36,11 @@ namespace DsuDev.NumericConversion
         {
             long octalLong = -1;
             string binaryString = Convert.ToString(number, 2);
+
             if (binaryString.Length <= BinaryStringMaxLength)
                 octalLong = Convert.ToInt64(Convert.ToString(number, 8));
             else
-			{
 				ThrowBinaryOutOfRangeException(number);
-			}
 
 			return octalLong;
         }
@@ -97,16 +92,16 @@ namespace DsuDev.NumericConversion
             int resultValue = 0;
 
             if (hexNumber.StartsWith(HexPrefix))
-            {
                 resultValue = Convert.ToInt32(hexNumber, 16);
-            }
             else
-            {
                 resultValue = int.Parse(hexNumber, System.Globalization.NumberStyles.HexNumber);
-            }
 
             return resultValue;
         }
 		
+		public static bool IsNumeric(string value)
+		{
+			return double.TryParse(value, out double result);
+		}
     }
 }

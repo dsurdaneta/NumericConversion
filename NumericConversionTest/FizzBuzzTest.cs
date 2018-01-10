@@ -12,7 +12,6 @@ namespace NumericConversion.Test
         {
             // Arrange
             var result = new FizzBuzz();
-
             // Act
             // Assert
             Assert.IsNotNull(result);
@@ -23,10 +22,8 @@ namespace NumericConversion.Test
         {
             // Arrange
             var fizzBuzz = new FizzBuzz();
-
             // Act
             var result = fizzBuzz.GetFizzBuzz(3);
-
             // Assert
             Assert.AreEqual(FizzBuzz.Fizz, result);
         }
@@ -36,10 +33,8 @@ namespace NumericConversion.Test
         {
             // Arrange
             var fizzBuzz = new FizzBuzz();
-
             // Act
             var result = fizzBuzz.GetFizzBuzz(5);
-
             // Assert
             Assert.AreEqual(FizzBuzz.Buzz, result);
         }
@@ -50,10 +45,8 @@ namespace NumericConversion.Test
             // Arrange
             var fizzBuzz = new FizzBuzz();
             var expected = FizzBuzz.Fizz + FizzBuzz.Buzz;
-
             // Act
             var result = fizzBuzz.GetFizzBuzz(15);
-
             // Assert
             Assert.AreEqual(expected, result);
         }
@@ -63,10 +56,8 @@ namespace NumericConversion.Test
         {
             // Arrange
             var fizzBuzz = new FizzBuzz();
-
             // Act
             var result = fizzBuzz.GetFizzBuzz(7);
-
             // Assert
             Assert.AreEqual(FizzBuzz.Whizz, result);
         }
@@ -77,10 +68,8 @@ namespace NumericConversion.Test
             // Arrange
             var fizzBuzz = new FizzBuzz();
             var expected = FizzBuzz.Fizz + FizzBuzz.Whizz;
-
             // Act
             var result = fizzBuzz.GetFizzBuzz(21);
-
             // Assert
             Assert.AreEqual(expected, result);
         }
@@ -91,10 +80,8 @@ namespace NumericConversion.Test
             // Arrange
             var fizzBuzz = new FizzBuzz();
             var expected = FizzBuzz.Buzz + FizzBuzz.Whizz;
-
             // Act
             var result = fizzBuzz.GetFizzBuzz(35);
-
             // Assert
             Assert.AreEqual(expected, result);
         }
@@ -105,12 +92,21 @@ namespace NumericConversion.Test
             // Arrange
             var fizzBuzz = new FizzBuzz();
             var expected = FizzBuzz.Fizz + FizzBuzz.Buzz + FizzBuzz.Whizz;
-
             // Act
             var result = fizzBuzz.GetFizzBuzz(105);
-
             // Assert
             Assert.AreEqual(expected, result);
         }
+
+		[TestMethod]
+		public void FizzBuzz_justANumber()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			// Act
+			var result = fizzBuzz.GetFizzBuzz(11);
+			// Assert
+			Assert.AreEqual("11", result);
+		}
     }
 }
