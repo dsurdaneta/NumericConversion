@@ -1,8 +1,7 @@
 ﻿using System;
-using DsuDev.NumericConversion;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace NumericConversion.Test
+namespace DsuDev.NumericConversion.Test.Convert
 {
     [TestClass]
     public class TransformTest
@@ -67,16 +66,7 @@ namespace NumericConversion.Test
 			//Assert
 			Assert.AreEqual(baseEight, "11");
 		}
-
-		[TestMethod]
-        public void Transform_HexStringTypeTest()
-        {
-			//Act
-            var hexString = Transform.IntegerToHexString(25);
-			//Assert
-            Assert.IsInstanceOfType(hexString, typeof(string));
-        }
-
+				
         [TestMethod]
         public void Transform_HexStringWithOutPrefixTest()
         {

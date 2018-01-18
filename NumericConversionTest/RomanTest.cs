@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using DsuDev.NumericConversion;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace NumericConversion.Test
+namespace DsuDev.NumericConversion.Test.Roman
 {
     [TestClass]
     public class RomanTest
@@ -74,6 +73,27 @@ namespace NumericConversion.Test
             Assert.AreEqual("VI", number6);
 			Assert.AreEqual("VII", number7);
 			Assert.AreEqual("VIII", number8);
+		}
+
+		[TestMethod]
+		public void RomanNumeral_9to13()
+		{
+			// Arrange
+			var romanNumeral = new RomanNumeral();
+
+			// Act
+			var number4 = romanNumeral.GetRomanValueFromArabicNum(9);
+			var number5 = romanNumeral.GetRomanValueFromArabicNum(10);
+			var number6 = romanNumeral.GetRomanValueFromArabicNum(11);
+			var number7 = romanNumeral.GetRomanValueFromArabicNum(12);
+			var number8 = romanNumeral.GetRomanValueFromArabicNum(13);
+
+			// Assert
+			Assert.AreEqual("IX", number4);
+			Assert.AreEqual("X", number5);
+			Assert.AreEqual("XI", number6);
+			Assert.AreEqual("XII", number7);
+			Assert.AreEqual("XIII", number8);
 		}
 
 		[TestMethod]
@@ -155,6 +175,27 @@ namespace NumericConversion.Test
 			Assert.AreEqual(6, number6);
 			Assert.AreEqual(7, number7);
 			Assert.AreEqual(8, number8);
+		}
+
+		[TestMethod]
+		public void Roman2Arabic_9to13()
+		{
+			// Arrange
+			var romanNumeral = new RomanNumeral();
+
+			// Act
+			var number4 = romanNumeral.GetArabicFromRoman("IX");
+			var number5 = romanNumeral.GetArabicFromRoman("X");
+			var number6 = romanNumeral.GetArabicFromRoman("XI");
+			var number7 = romanNumeral.GetArabicFromRoman("XII");
+			var number8 = romanNumeral.GetArabicFromRoman("XIII");
+
+			// Assert
+			Assert.AreEqual(9, number4);
+			Assert.AreEqual(10, number5);
+			Assert.AreEqual(11, number6);
+			Assert.AreEqual(12, number7);
+			Assert.AreEqual(13, number8);
 		}
 	}
 }

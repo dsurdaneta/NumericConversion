@@ -1,8 +1,7 @@
 ﻿using System;
-using DsuDev.NumericConversion;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace NumericConversion.Test
+namespace DsuDev.NumericConversion.Test.Fizz
 {
     [TestClass]
     public class FizzBuzzTest
