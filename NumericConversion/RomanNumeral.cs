@@ -9,8 +9,14 @@ namespace DsuDev.NumericConversion
         protected readonly Dictionary<int, string> baseNumbers;
         protected const int MaxNumber = 4000;
 
-        public RomanNumeral()
+		private static string _error;
+
+		public string ValidationMessage => _error;
+
+		public RomanNumeral()
         {
+			_error = "";
+
             baseNumbers = new Dictionary<int, string>();
             baseNumbers.Add(1, "I");
             baseNumbers.Add(4, "IV");
@@ -31,7 +37,8 @@ namespace DsuDev.NumericConversion
         {
             if (number < 1 || number >= MaxNumber)
             {
-                throw new ArgumentOutOfRangeException($"{number} must be a positive integer of value less than {MaxNumber}");
+				_error = $"{number} must be a positive integer of value less than {MaxNumber}";
+				throw new ArgumentOutOfRangeException(ValidationMessage);
             }
 
             string value = "";
@@ -55,13 +62,19 @@ namespace DsuDev.NumericConversion
 
         public int GetArabicFromRoman(string romanNumeral)
         {
-            if (string.IsNullOrEmpty(romanNumeral))
-                throw  new ArgumentNullException(nameof(romanNumeral));
+			if (string.IsNullOrEmpty(romanNumeral))
+			{
+				_error = $"{nameof(romanNumeral)} should not be null nor empty";
+				throw new ArgumentNullException(ValidationMessage);
+			}
 
             var notAllowedValues = romanNumeral.Where(x => !baseNumbers.ContainsValue(x.ToString())).ToList();
 
-            if (notAllowedValues.Count > 0)
-                throw new KeyNotFoundException($"{romanNumeral} contains not allowed characters");
+			if (notAllowedValues.Count > 0)
+			{
+				_error = $"{romanNumeral} contains not allowed characters";
+				throw new KeyNotFoundException(ValidationMessage);
+			}
 
 			int total = 0, lastValue = 0;
 			for (int i = romanNumeral.Length - 1; i >= 0; i--)

@@ -135,5 +135,26 @@ namespace NumericConversion.Test
 			// Assert
 			Assert.AreEqual(1427, number);
 		}
+
+		[TestMethod]
+		public void Roman2Arabic_4to8()
+		{
+			// Arrange
+			var romanNumeral = new RomanNumeral();
+
+			// Act
+			var number4 = romanNumeral.GetArabicFromRoman("IV");
+			var number5 = romanNumeral.GetArabicFromRoman("V");
+			var number6 = romanNumeral.GetArabicFromRoman("VI");
+			var number7 = romanNumeral.GetArabicFromRoman("VII");
+			var number8 = romanNumeral.GetArabicFromRoman("VIII");
+
+			// Assert
+			Assert.AreEqual(4, number4);
+			Assert.AreEqual(5, number5);
+			Assert.AreEqual(6, number6);
+			Assert.AreEqual(7, number7);
+			Assert.AreEqual(8, number8);
+		}
 	}
 }
