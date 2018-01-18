@@ -16,13 +16,16 @@ namespace DsuDev.NumericConversion
 
         public static long IntegerToBinaryLong(int number)
         {
+			if (number < 0)
+				ThrowNegativeBinaryStringUnsupported(number);
+
             long binaryLong = -1;
             string binaryString = Convert.ToString(number, 2);
 
             if (binaryString.Length <= BinaryStringMaxLength)
                 binaryLong = Convert.ToInt64(binaryString);
             else
-				ThrowBinaryOutOfRangeException(number);
+				ThrowBinaryOutOfRangeException(number, binaryString);
 
             return binaryLong;
         }
@@ -34,21 +37,30 @@ namespace DsuDev.NumericConversion
 
         public static long IntegerToOctalLong(int number)
         {
-            long octalLong = -1;
+			if (number < 0)
+				ThrowNegativeBinaryStringUnsupported(number);
+
+			long octalLong = -1;
             string binaryString = Convert.ToString(number, 2);
 
             if (binaryString.Length <= BinaryStringMaxLength)
                 octalLong = Convert.ToInt64(Convert.ToString(number, 8));
             else
-				ThrowBinaryOutOfRangeException(number);
+				ThrowBinaryOutOfRangeException(number, binaryString);
 
 			return octalLong;
         }
 
-		internal static void ThrowBinaryOutOfRangeException(int number)
+		internal static void ThrowBinaryOutOfRangeException(int number, string binaryConvertedString)
 		{
-			_error = $"number ({number}) length not supported, it has to be less than {BinaryStringMaxLength} digits";
+			_error = $"number ({number}) length not supported, it has to be less than {BinaryStringMaxLength} digits, current binary length {binaryConvertedString.Length}";
 			throw new ArgumentOutOfRangeException(nameof(number), number, _error);
+		}
+
+		internal static void ThrowNegativeBinaryStringUnsupported(int number)
+		{
+			_error = $"Negative numbers casting ({number}) is not supported for this method";
+			throw new InvalidCastException(_error);
 		}
 
 		public static string IntegerToOctalString(int number)

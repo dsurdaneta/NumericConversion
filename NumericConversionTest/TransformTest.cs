@@ -54,12 +54,21 @@ namespace NumericConversion.Test
         public void Transform_IntToOctalLongTest()
         {
 			//Act
-            long baseEight = Transform.IntegerToOctalLong(8);
+            var baseEight = Transform.IntegerToOctalLong(8);
 			//Assert
             Assert.AreEqual(baseEight, 10);
         }
 
-        [TestMethod]
+		[TestMethod]
+		public void Transform_IntToOctalStringTest()
+		{
+			//Act
+			var baseEight = Transform.IntegerToOctalString(9);
+			//Assert
+			Assert.AreEqual(baseEight, "11");
+		}
+
+		[TestMethod]
         public void Transform_HexStringTypeTest()
         {
 			//Act
@@ -75,6 +84,7 @@ namespace NumericConversion.Test
             var hexString = Transform.IntegerToHexString(27, false);
 			//Assert
             Assert.IsFalse(hexString.StartsWith("0x"));
+			Assert.AreEqual("1B", hexString);
         }
 
         [TestMethod]
@@ -84,7 +94,8 @@ namespace NumericConversion.Test
             var hexString = Transform.IntegerToHexString(28, true);
 			//Assert
             Assert.IsTrue(hexString.StartsWith("0x"));
-        }
+			Assert.AreEqual("0x1C", hexString);
+		}
 
         [TestMethod]
         public void Transform_IntToBinaryStringTest()
@@ -94,5 +105,57 @@ namespace NumericConversion.Test
 			//Assert
             Assert.AreEqual(baseTwo, "101");
         }
-    }
+
+		[TestMethod]
+		public void Transform_negativeIntToBinaryStringTest()
+		{
+			//Act
+			var baseTwo = Transform.IntegerToBinaryString(-5);
+			//Assert
+			Assert.AreEqual(baseTwo, "11111111111111111111111111111011");
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(InvalidCastException))]
+		public void Transform_negativeIntToBinaryLongUnsupported_Test()
+		{
+			long baseTwo = Transform.IntegerToBinaryLong(-1);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(InvalidCastException))]
+		public void Transform_negativeIntToOctalLongUnsupported_Test()
+		{
+			long baseEight = Transform.IntegerToOctalLong(-1);
+		}
+
+		[TestMethod]
+		public void Transform_negativeHexStringWithOutPrefixTest()
+		{
+			//Act
+			var hexString = Transform.IntegerToHexString(-27, false);
+			//Assert
+			Assert.IsFalse(hexString.StartsWith("0x"));
+			Assert.AreEqual("FFFFFFE5", hexString);
+		}
+
+		[TestMethod]
+		public void Transform_negativeHexPrefixTest()
+		{
+			//Act
+			var hexString = Transform.IntegerToHexString(-28, true);
+			//Assert
+			Assert.IsTrue(hexString.StartsWith("0x"));
+			Assert.AreEqual("0xFFFFFFE4", hexString);
+		}
+
+		[TestMethod]
+		public void Transform_negativeIntToOctalStringTest()
+		{
+			//Act
+			var baseEight = Transform.IntegerToOctalString(-9);
+			//Assert
+			Assert.AreEqual(baseEight, "37777777767");
+		}
+	}
 }
