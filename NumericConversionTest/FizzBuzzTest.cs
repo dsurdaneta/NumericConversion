@@ -23,9 +23,9 @@ namespace NumericConversion.Test
             // Arrange
             var fizzBuzz = new FizzBuzz();
             // Act
-            var result = fizzBuzz.GetFizzBuzz(3);
-            // Assert
-            Assert.AreEqual(FizzBuzz.Fizz, result);
+            var result = fizzBuzz.GetFizzBuzz(3);			
+			// Assert
+			Assert.AreEqual(FizzBuzz.Fizz, result);
         }
 
         [TestMethod]
@@ -108,5 +108,29 @@ namespace NumericConversion.Test
 			// Assert
 			Assert.AreEqual("11", result);
 		}
-    }
+
+		[TestMethod]
+		public void FizzBuzz_isZero()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			// Act
+			
+			var result = fizzBuzz.GetFizzBuzz(0);
+			// Assert
+			Assert.AreEqual("0", result);
+		}
+
+		[TestMethod]
+		public void FizzBuzz_negativeNumber()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			// Act
+
+			var result = fizzBuzz.GetFizzBuzz(-10);
+			// Assert
+			Assert.AreEqual(FizzBuzz.Buzz, result);
+		}
+	}
 }

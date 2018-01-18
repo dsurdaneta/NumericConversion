@@ -33,7 +33,10 @@ namespace DsuDev.NumericConversion
 
         internal string TranslateToWords(int number)
         {
-            string result = "";
+			if (number == 0)
+				return number.ToString();
+
+			string result = "";						
 
             foreach (KeyValuePair<int, string> item in wordzzDictionary)
             {
