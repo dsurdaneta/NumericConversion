@@ -7,9 +7,7 @@ namespace DsuDev.NumericConversion
     {
         public const int BinaryStringMaxLength = 19;
         internal const string HexPrefix = "0x";
-
-        private static string _error;
-
+        protected static string _error;
         public string ValidationMessage => _error;
 
         public Transform() { _error = ""; }
@@ -51,18 +49,6 @@ namespace DsuDev.NumericConversion
 			return octalLong;
         }
 
-		internal static void ThrowBinaryOutOfRangeException(int number, string binaryConvertedString)
-		{
-			_error = $"number ({number}) length not supported, it has to be less than {BinaryStringMaxLength} digits, current binary length {binaryConvertedString.Length}";
-			throw new ArgumentOutOfRangeException(nameof(number), number, _error);
-		}
-
-		internal static void ThrowNegativeBinaryStringUnsupported(int number)
-		{
-			_error = $"Negative numbers casting ({number}) is not supported for this method";
-			throw new InvalidCastException(_error);
-		}
-
 		public static string IntegerToOctalString(int number)
         {
             return Convert.ToString(number, 8);
@@ -79,7 +65,6 @@ namespace DsuDev.NumericConversion
         {
             string hexNumber = prefixed ? HexPrefix : "";
             hexNumber = hexNumber + number.ToString("X").ToUpper();
-
             return hexNumber;
         }
 
@@ -115,5 +100,19 @@ namespace DsuDev.NumericConversion
 		{
 			return double.TryParse(value, out double result);
 		}
-    }
+
+		#region Exception handling
+		internal static void ThrowBinaryOutOfRangeException(int number, string binaryConvertedString)
+		{
+			_error = $"number ({number}) length not supported, it has to be less than {BinaryStringMaxLength} digits, current binary length {binaryConvertedString.Length}";
+			throw new ArgumentOutOfRangeException(nameof(number), number, _error);
+		}
+
+		internal static void ThrowNegativeBinaryStringUnsupported(int number)
+		{
+			_error = $"Negative numbers casting ({number}) is not supported for this method";
+			throw new InvalidCastException(_error);
+		}
+		#endregion
+	}
 }
