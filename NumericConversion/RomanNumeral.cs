@@ -72,7 +72,7 @@ namespace DsuDev.NumericConversion
 
 			if (notAllowedValues.Count > 0)
 			{
-				_error = $"{romanNumeral} contains not allowed characters";
+				_error = $"{romanNumeral} contains not allowed characters, such as {notAllowedValues.FirstOrDefault().ToString()}";
 				throw new KeyNotFoundException(ValidationMessage);
 			}
 
