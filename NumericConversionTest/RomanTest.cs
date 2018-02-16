@@ -97,6 +97,27 @@ namespace DsuDev.NumericConversion.Test.Roman
 		}
 
 		[TestMethod]
+		public void RomanNumeral_14to18()
+		{
+			// Arrange
+			var romanNumeral = new RomanNumeral();
+
+			// Act
+			var number4 = romanNumeral.GetRomanValueFromArabicNum(14);
+			var number5 = romanNumeral.GetRomanValueFromArabicNum(15);
+			var number6 = romanNumeral.GetRomanValueFromArabicNum(16);
+			var number1 = romanNumeral.GetRomanValueFromArabicNum(17);
+			var number2 = romanNumeral.GetRomanValueFromArabicNum(18);
+
+			// Assert
+			Assert.AreEqual("XIV", number4);
+			Assert.AreEqual("XV", number5);
+			Assert.AreEqual("XVI", number6);
+			Assert.AreEqual("XVII", number1);
+			Assert.AreEqual("XVIII", number2);
+		}
+
+		[TestMethod]
 		public void RomanNumeral_3709()
 		{
 			// Arrange
@@ -196,6 +217,27 @@ namespace DsuDev.NumericConversion.Test.Roman
 			Assert.AreEqual(11, number6);
 			Assert.AreEqual(12, number7);
 			Assert.AreEqual(13, number8);
+		}
+
+		[TestMethod]
+		public void Roman2Arabic_14to18()
+		{
+			// Arrange
+			var romanNumeral = new RomanNumeral();
+
+			// Act
+			var number4 = romanNumeral.GetArabicFromRoman("XIV");
+			var number5 = romanNumeral.GetArabicFromRoman("XV");
+			var number6 = romanNumeral.GetArabicFromRoman("XVI");
+			var number7 = romanNumeral.GetArabicFromRoman("XVII");
+			var number8 = romanNumeral.GetArabicFromRoman("XVIII");
+
+			// Assert
+			Assert.AreEqual(14, number4);
+			Assert.AreEqual(15, number5);
+			Assert.AreEqual(16, number6);
+			Assert.AreEqual(17, number7);
+			Assert.AreEqual(18, number8);
 		}
 	}
 }

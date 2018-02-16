@@ -11,7 +11,6 @@ namespace DsuDev.NumericConversion.Test.Fizz
         {
             // Arrange
             var result = new FizzBuzz();
-            // Act
             // Assert
             Assert.IsNotNull(result);
         }		      
@@ -113,8 +112,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
-			// Act
-			
+			// Act			
 			var result = fizzBuzz.GetFizzBuzz(0);
 			// Assert
 			Assert.AreEqual("0", result);
@@ -126,7 +124,6 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
 			// Act
-
 			var result = fizzBuzz.GetFizzBuzz(-10);
 			// Assert
 			Assert.AreEqual(FizzBuzz.Buzz, result);
