@@ -47,5 +47,14 @@ namespace DsuDev.NumericConversion
             return result;
         }
 
-    }
+		public List<string> GenerateFizzBuzzList(int number)
+		{
+			List<string> words = new List<string>();
+
+			for (int i = 0; i < number; i++)
+				words.Add(GetFizzBuzz(i + 1));
+
+			return words;
+		}
+	}
 }

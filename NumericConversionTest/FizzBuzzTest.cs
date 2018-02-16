@@ -1,9 +1,9 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DsuDev.NumericConversion.Test.Fizz
 {
-    [TestClass]
+	[TestClass]
     public class FizzBuzzTest
     {
         [TestMethod]
@@ -127,6 +127,50 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			var result = fizzBuzz.GetFizzBuzz(-10);
 			// Assert
 			Assert.AreEqual(FizzBuzz.Buzz, result);
+		}
+
+		[TestMethod]
+		public void FizzBuzzZeroList()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			var expected = new List<string>();
+
+			// Act
+			var result = fizzBuzz.GenerateFizzBuzzList(0);
+			// Assert
+			CollectionAssert.AreEqual(expected, result);
+		}
+
+		[TestMethod]
+		public void FizzBuzz10List()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			var expected = new List<string> { "1", "2", FizzBuzz.Fizz, "4", FizzBuzz.Buzz, FizzBuzz.Fizz, FizzBuzz.Whizz, "8", FizzBuzz.Fizz, FizzBuzz.Buzz };
+
+			// Act
+			var result = fizzBuzz.GenerateFizzBuzzList(10);
+			// Assert
+			CollectionAssert.AreEqual(expected, result);
+
+		}
+
+		[TestMethod]
+		public void FizzBuzz30List()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			var expected = new List<string> {
+				"1", "2", FizzBuzz.Fizz, "4", FizzBuzz.Buzz, FizzBuzz.Fizz, FizzBuzz.Whizz, "8", FizzBuzz.Fizz, FizzBuzz.Buzz,
+				"11", FizzBuzz.Fizz, "13", FizzBuzz.Whizz, FizzBuzz.Fizz + FizzBuzz.Buzz, "16", "17", FizzBuzz.Fizz, "19", FizzBuzz.Buzz,
+				FizzBuzz.Fizz + FizzBuzz.Whizz, "22", "23", FizzBuzz.Fizz, FizzBuzz.Buzz, "26", FizzBuzz.Fizz, FizzBuzz.Whizz, "29", FizzBuzz.Fizz + FizzBuzz.Buzz
+			};
+
+			// Act
+			var result = fizzBuzz.GenerateFizzBuzzList(30);
+			// Assert
+			CollectionAssert.AreEqual(expected, result);
 		}
 	}
 }
