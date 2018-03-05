@@ -119,7 +119,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 
 		[TestMethod]
-		public void FizzBuzz_negativeNumber()
+		public void FizzBuzz_negativeWord()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
@@ -129,13 +129,23 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			Assert.AreEqual(FizzBuzz.Buzz, result);
 		}
 
+
 		[TestMethod]
-		public void FizzBuzzZeroList()
+		public void FizzBuzz_negativeNumber()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			// Act
+			var result = fizzBuzz.GetFizzBuzz(-8);
+			// Assert
+			Assert.AreEqual("-8", result);
+		}
+		[TestMethod]
+		public void FizzBuzz_zeroList()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
 			var expected = new List<string>();
-
 			// Act
 			var result = fizzBuzz.GenerateFizzBuzzList(0);
 			// Assert
@@ -143,30 +153,88 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 
 		[TestMethod]
-		public void FizzBuzz10List()
+		public void FizzBuzz_zeroListIncludeZero()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			var expected = new List<string> { "0" };
+			// Act
+			var result = fizzBuzz.GenerateFizzBuzzList(0, true);
+			// Assert
+			CollectionAssert.AreEqual(expected, result);
+		}
+
+		[TestMethod]
+		public void FizzBuzz_10List()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
 			var expected = new List<string> { "1", "2", FizzBuzz.Fizz, "4", FizzBuzz.Buzz, FizzBuzz.Fizz, FizzBuzz.Whizz, "8", FizzBuzz.Fizz, FizzBuzz.Buzz };
-
 			// Act
 			var result = fizzBuzz.GenerateFizzBuzzList(10);
 			// Assert
 			CollectionAssert.AreEqual(expected, result);
-
 		}
 
 		[TestMethod]
-		public void FizzBuzz30List()
+		public void FizzBuzz_10ListIncludeZero()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
-			var expected = new List<string> {
+			var expected = new List<string> { "0", "1", "2", FizzBuzz.Fizz, "4", FizzBuzz.Buzz, FizzBuzz.Fizz, FizzBuzz.Whizz, "8", FizzBuzz.Fizz, FizzBuzz.Buzz };
+			// Act
+			var result = fizzBuzz.GenerateFizzBuzzList(10, true);
+			// Assert
+			CollectionAssert.AreEqual(expected, result);
+		}
+
+		[TestMethod]
+		public void FizzBuzz_negative10List()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			var expected = new List<string> { "-1", "-2", FizzBuzz.Fizz, "-4", FizzBuzz.Buzz, FizzBuzz.Fizz, FizzBuzz.Whizz, "-8", FizzBuzz.Fizz, FizzBuzz.Buzz };
+			// Act
+			var result = fizzBuzz.GenerateNegativeFizzBuzzList(-10);
+			// Assert
+			CollectionAssert.AreEqual(expected, result);
+		}
+
+		[TestMethod]
+		public void FizzBuzz_negative10ListIncludeZero()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			var expected = new List<string> { "0", "-1", "-2", FizzBuzz.Fizz, "-4", FizzBuzz.Buzz, FizzBuzz.Fizz, FizzBuzz.Whizz, "-8", FizzBuzz.Fizz, FizzBuzz.Buzz };
+			// Act
+			var result = fizzBuzz.GenerateNegativeFizzBuzzList(-10, true);
+			// Assert
+			CollectionAssert.AreEqual(expected, result);
+		}
+
+		[TestMethod]
+		public void FizzBuzz_negative10ListWithReverseFalse()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			var expected = new List<string> { FizzBuzz.Buzz, FizzBuzz.Fizz, "-8", FizzBuzz.Whizz, FizzBuzz.Fizz, FizzBuzz.Buzz, "-4", FizzBuzz.Fizz, "-2", "-1" };
+			// Act
+			var result = fizzBuzz.GenerateNegativeFizzBuzzList(-10, reverse: false);
+			// Assert
+			CollectionAssert.AreEqual(expected, result);
+		}
+		
+		[TestMethod]
+		public void FizzBuzz_30List()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			var expected = new List<string>
+			{
 				"1", "2", FizzBuzz.Fizz, "4", FizzBuzz.Buzz, FizzBuzz.Fizz, FizzBuzz.Whizz, "8", FizzBuzz.Fizz, FizzBuzz.Buzz,
 				"11", FizzBuzz.Fizz, "13", FizzBuzz.Whizz, FizzBuzz.Fizz + FizzBuzz.Buzz, "16", "17", FizzBuzz.Fizz, "19", FizzBuzz.Buzz,
 				FizzBuzz.Fizz + FizzBuzz.Whizz, "22", "23", FizzBuzz.Fizz, FizzBuzz.Buzz, "26", FizzBuzz.Fizz, FizzBuzz.Whizz, "29", FizzBuzz.Fizz + FizzBuzz.Buzz
 			};
-
 			// Act
 			var result = fizzBuzz.GenerateFizzBuzzList(30);
 			// Assert

@@ -1,9 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace DsuDev.NumericConversion
 {
-    public class FizzBuzz
+	/// <summary>
+	/// Every multiple of 3 = Fizz.
+	/// Every multiple of 5 = Buzz.
+	/// Every multiple of 7 = Whizz.
+	/// </summary>
+	public class FizzBuzz
     {
         public const string Fizz = "Fizz";
         public const string Buzz = "Buzz";
@@ -43,16 +47,50 @@ namespace DsuDev.NumericConversion
                 if (number % item.Key == 0)
                     result += item.Value;
             }
-
             return result;
         }
 
-		public List<string> GenerateFizzBuzzList(int number)
+		/// <summary>
+		/// Generates a list of FizzBuzzWhizz numbers
+		/// </summary>
+		/// <param name="number">The last number of the list</param>
+		/// <param name="includeZero">true to start at 0, false to start at 1. Default value is false</param>
+		/// <returns></returns>
+		public List<string> GenerateFizzBuzzList(int number, bool includeZero = false)
 		{
+			if (number < 0)
+				return GenerateNegativeFizzBuzzList(number, includeZero);
+				
 			List<string> words = new List<string>();
+			if (includeZero)
+				words.Add("0");			
 
 			for (int i = 0; i < number; i++)
 				words.Add(GetFizzBuzz(i + 1));
+
+			return words;
+		}
+
+		/// <summary>
+		/// Generates a negative list of FizzBuzzWhizz numbers
+		/// </summary>
+		/// <param name="number">the first negative number</param>
+		/// <param name="includeZero">true to end at 0, false to end at 1. Default value is false</param>
+		/// <param name="reverse">indicates if the list must be reversed. Default true</param>
+		/// <returns></returns>
+		public List<string> GenerateNegativeFizzBuzzList(int number, bool includeZero = false, bool reverse = true)
+		{			
+			if (number > 0)
+				return GenerateFizzBuzzList(number, includeZero);
+						
+			List<string> words = new List<string>();
+			for (int i = number; i < 0; i++)
+				words.Add(GetFizzBuzz(i));
+
+			if (includeZero)
+				words.Add("0");			
+			if (reverse)
+				words.Reverse();
 
 			return words;
 		}
