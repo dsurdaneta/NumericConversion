@@ -1,9 +1,15 @@
 ﻿using System;
-using System.Text;
 
 namespace DsuDev.NumericConversion
 {
-    public class Transform
+	/// <summary>
+	/// Class to handle conversions between several numeric bases, including:
+	/// -Decimal
+	/// -Binary
+	/// -Octal
+	/// -Hex
+	/// </summary>
+	public class Transform
     {
         public const int BinaryStringMaxLength = 19;
         internal const string HexPrefix = "0x";

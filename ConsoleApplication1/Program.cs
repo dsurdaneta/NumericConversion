@@ -2,6 +2,9 @@
 
 namespace DsuDev.NumericConversion.ConsoleApplication1
 {
+	/// <summary>
+	/// Helps debugging with the console
+	/// </summary>
 	class Program
     {
         static void Main(string[] args)

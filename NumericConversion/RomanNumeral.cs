@@ -4,13 +4,14 @@ using System.Linq;
 
 namespace DsuDev.NumericConversion
 {
+	/// <summary>
+	/// Class to handle RomanNumeral to Arabic numbers and viceversa conversions.
+	/// </summary>
     public class RomanNumeral
     {
         protected readonly Dictionary<int, string> baseNumbers;
         protected const int MaxNumber = 4000;
-
 		private static string _error;
-
 		public string ValidationMessage => _error;
 
 		public RomanNumeral()
@@ -56,7 +57,6 @@ namespace DsuDev.NumericConversion
                 current -= item.Key;
                 value += item.Value;
             }
-
             return value;
         }
 
@@ -69,7 +69,6 @@ namespace DsuDev.NumericConversion
 			}
 
             var notAllowedValues = romanNumeral.Where(x => !baseNumbers.ContainsValue(x.ToString())).ToList();
-
 			if (notAllowedValues.Count > 0)
 			{
 				_error = $"{romanNumeral} contains not allowed characters, such as {notAllowedValues.FirstOrDefault().ToString()}";
@@ -90,7 +89,6 @@ namespace DsuDev.NumericConversion
 					lastValue = currentValue;
 				}
 			}
-
 			return total;
         }
     }
