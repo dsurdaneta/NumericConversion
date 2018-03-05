@@ -34,7 +34,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 		}
 
 		[TestMethod]
-        public void Transform_IntToBinaryLongTest()
+        public void Transform_intToBinaryLongTest()
         {
 			//Act
             long baseTwo = Transform.IntegerToBinaryLong(3);
@@ -44,13 +44,13 @@ namespace DsuDev.NumericConversion.Test.Convert
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Transform_IntToBinaryLongTooLongExceptionTest()
+        public void Transform_intToBinaryLongTooLongExceptionTest()
         {
             Transform.IntegerToBinaryLong(2132132135);
         }
 
         [TestMethod]
-        public void Transform_IntToOctalLongTest()
+        public void Transform_intToOctalLongTest()
         {
 			//Act
             var baseEight = Transform.IntegerToOctalLong(8);
@@ -59,7 +59,7 @@ namespace DsuDev.NumericConversion.Test.Convert
         }
 
 		[TestMethod]
-		public void Transform_IntToOctalStringTest()
+		public void Transform_intToOctalStringTest()
 		{
 			//Act
 			var baseEight = Transform.IntegerToOctalString(9);
@@ -68,7 +68,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 		}
 				
         [TestMethod]
-        public void Transform_HexStringWithOutPrefixTest()
+        public void Transform_hexStringWithOutPrefixTest()
         {
 			//Act
             var hexString = Transform.IntegerToHexString(27, false);
@@ -78,7 +78,7 @@ namespace DsuDev.NumericConversion.Test.Convert
         }
 
         [TestMethod]
-        public void Transform_HexPrefixTest()
+        public void Transform_hexPrefixTest()
         {
 			//Act
             var hexString = Transform.IntegerToHexString(28, true);
@@ -88,7 +88,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 		}
 
         [TestMethod]
-        public void Transform_IntToBinaryStringTest()
+        public void Transform_intToBinaryStringTest()
         {
 			//Act
             var baseTwo = Transform.IntegerToBinaryString(5);
