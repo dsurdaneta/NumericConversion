@@ -47,11 +47,7 @@ namespace DsuDev.NumericConversion.Test.Roman
             var romanNumeral = new RomanNumeral();
 			var expected = new List<string> { "I", "II", "III" };
 			// Act
-			var actual = new List<string> {
-				romanNumeral.GetRomanValueFromArabicNum(1),
-				romanNumeral.GetRomanValueFromArabicNum(2),
-				romanNumeral.GetRomanValueFromArabicNum(3)
-			};
+			var actual = romanNumeral.RangeRomanList(1, 3);			
 			// Assert
 			CollectionAssert.AreEqual(expected, actual);           
         }
@@ -63,13 +59,7 @@ namespace DsuDev.NumericConversion.Test.Roman
             var romanNumeral = new RomanNumeral();
 			var expected = new List<string> { "IV", "V", "VI", "VII", "VIII" };
 			// Act
-			var actual = new List<string> {
-				romanNumeral.GetRomanValueFromArabicNum(4),
-				romanNumeral.GetRomanValueFromArabicNum(5),
-				romanNumeral.GetRomanValueFromArabicNum(6),
-				romanNumeral.GetRomanValueFromArabicNum(7),
-				romanNumeral.GetRomanValueFromArabicNum(8)
-			};
+			var actual = romanNumeral.RangeRomanList(4, 5);			
 			// Assert
 			CollectionAssert.AreEqual(expected, actual);			
 		}
@@ -81,13 +71,7 @@ namespace DsuDev.NumericConversion.Test.Roman
 			var romanNumeral = new RomanNumeral();
 			var expected = new List<string> { "IX", "X", "XI", "XII", "XIII" };
 			// Act
-			var actual = new List<string> {
-				romanNumeral.GetRomanValueFromArabicNum(9),
-				romanNumeral.GetRomanValueFromArabicNum(10),
-				romanNumeral.GetRomanValueFromArabicNum(11),
-				romanNumeral.GetRomanValueFromArabicNum(12),
-				romanNumeral.GetRomanValueFromArabicNum(13)
-			};
+			var actual = romanNumeral.RangeRomanList(9, 5);
 			// Assert
 			CollectionAssert.AreEqual(expected, actual);			
 		}
@@ -99,13 +83,7 @@ namespace DsuDev.NumericConversion.Test.Roman
 			var romanNumeral = new RomanNumeral();
 			var expected = new List<string> { "XIV", "XV", "XVI", "XVII", "XVIII" };
 			// Act
-			var actual = new List<string> {
-				romanNumeral.GetRomanValueFromArabicNum(14),
-				romanNumeral.GetRomanValueFromArabicNum(15),
-				romanNumeral.GetRomanValueFromArabicNum(16),
-				romanNumeral.GetRomanValueFromArabicNum(17),
-				romanNumeral.GetRomanValueFromArabicNum(18)
-			};
+			var actual = romanNumeral.RangeRomanList(14, 5);			
 			// Assert
 			CollectionAssert.AreEqual(expected, actual);
 		}
@@ -150,7 +128,8 @@ namespace DsuDev.NumericConversion.Test.Roman
 			var romanNumeral = new RomanNumeral();
 			var expected = Enumerable.Range(1, 3).ToList();
 			// Act
-			var actual = new List<int> {
+			var actual = new List<int>
+			{
 				romanNumeral.GetArabicFromRoman("I"),
 				romanNumeral.GetArabicFromRoman("II"),
 				romanNumeral.GetArabicFromRoman("III")
@@ -176,14 +155,15 @@ namespace DsuDev.NumericConversion.Test.Roman
 			// Arrange
 			var romanNumeral = new RomanNumeral();
 			var expected = Enumerable.Range(4, 5).ToList();
-			// Act
-			var actual = new List<int> {
+			// Act			
+			var actual = new List<int>
+			{
 				romanNumeral.GetArabicFromRoman("IV"),
 				romanNumeral.GetArabicFromRoman("V"),
 				romanNumeral.GetArabicFromRoman("VI"),
 				romanNumeral.GetArabicFromRoman("VII"),
 				romanNumeral.GetArabicFromRoman("VIII")
-			};
+			};			
 			// Assert
 			CollectionAssert.AreEqual(expected, actual);			
 		}
@@ -195,7 +175,8 @@ namespace DsuDev.NumericConversion.Test.Roman
 			var romanNumeral = new RomanNumeral();
 			var expected = Enumerable.Range(9, 5).ToList();
 			// Act
-			var actual = new List<int> {
+			var actual = new List<int>
+			{
 				romanNumeral.GetArabicFromRoman("IX"),
 				romanNumeral.GetArabicFromRoman("X"),
 				romanNumeral.GetArabicFromRoman("XI"),
@@ -213,7 +194,8 @@ namespace DsuDev.NumericConversion.Test.Roman
 			var romanNumeral = new RomanNumeral();
 			var expected = Enumerable.Range(14, 5).ToList();
 			// Act
-			var actual = new List<int> {
+			var actual = new List<int>
+			{
 				romanNumeral.GetArabicFromRoman("XIV"),
 				romanNumeral.GetArabicFromRoman("XV"),
 				romanNumeral.GetArabicFromRoman("XVI"),

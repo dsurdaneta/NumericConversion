@@ -5,7 +5,7 @@ using System.Linq;
 namespace DsuDev.NumericConversion
 {
 	/// <summary>
-	/// Class to handle RomanNumeral to Arabic numbers and viceversa conversions.
+	/// Class to handle conversions between RomanNumeral and Arabic numbers.
 	/// </summary>
     public class RomanNumeral
     {
@@ -91,5 +91,17 @@ namespace DsuDev.NumericConversion
 			}
 			return total;
         }
+
+		public List<string> RangeRomanList(int start, int count)
+		{
+			List<string> romancollection = new List<string>();
+
+			for(int i = 0; i < count; i++)
+			{
+				romancollection.Add(GetRomanValueFromArabicNum(start + i));
+			}
+
+			return romancollection;
+		}
     }
 }
