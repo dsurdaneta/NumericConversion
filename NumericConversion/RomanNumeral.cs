@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DsuDev.NumericConversion.Constants;
 
 namespace DsuDev.NumericConversion
 {
 	/// <summary>
 	/// Class to handle conversions between RomanNumeral and Arabic numbers.
 	/// </summary>
-    public class RomanNumeral
-    {
-        protected readonly Dictionary<int, string> baseNumbers;
-        protected const int MaxNumber = 4000;
+    public class RomanNumeral 
+	{
+        protected readonly Dictionary<int, string> baseNumbers;        
 		private static string _error;
 		public string ValidationMessage => _error;
 
@@ -36,9 +36,9 @@ namespace DsuDev.NumericConversion
 
         public string GetRomanValueFromArabicNum(int number)
         {
-            if (number < 1 || number >= MaxNumber)
+            if (number < 1 || number >= Roman.MaxNumber)
             {
-				_error = $"{number} must be a positive integer of value less than {MaxNumber}";
+				_error = $"{number} must be a positive integer of value less than {Roman.MaxNumber}";
 				throw new ArgumentOutOfRangeException(ValidationMessage);
             }
 

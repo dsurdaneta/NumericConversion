@@ -1,4 +1,5 @@
 ﻿using System;
+using DsuDev.NumericConversion.Constants;
 
 namespace DsuDev.NumericConversion
 {
@@ -10,9 +11,7 @@ namespace DsuDev.NumericConversion
 	/// -Hex
 	/// </summary>
 	public class Transform
-    {
-        public const int BinaryStringMaxLength = 19;
-        internal const string HexPrefix = "0x";
+    {                
         protected static string _error;
         public string ValidationMessage => _error;
 
@@ -26,7 +25,7 @@ namespace DsuDev.NumericConversion
             long binaryLong = -1;
             string binaryString = Convert.ToString(number, 2);
 
-            if (binaryString.Length <= BinaryStringMaxLength)
+            if (binaryString.Length < NumberBase.BinaryStringMaxLength)
                 binaryLong = Convert.ToInt64(binaryString);
             else
 				ThrowBinaryOutOfRangeException(number, binaryString);
@@ -47,7 +46,7 @@ namespace DsuDev.NumericConversion
 			long octalLong = -1;
             string binaryString = Convert.ToString(number, 2);
 
-            if (binaryString.Length <= BinaryStringMaxLength)
+            if (binaryString.Length < NumberBase.BinaryStringMaxLength)
                 octalLong = Convert.ToInt64(Convert.ToString(number, 8));
             else
 				ThrowBinaryOutOfRangeException(number, binaryString);
@@ -69,7 +68,7 @@ namespace DsuDev.NumericConversion
         /// <returns></returns>
         public static string IntegerToHexString(int number, bool prefixed = true)
         {
-            string hexNumber = prefixed ? HexPrefix : "";
+            string hexNumber = prefixed ? NumberBase.HexPrefix : "";
             hexNumber = hexNumber + number.ToString("X").ToUpper();
             return hexNumber;
         }
@@ -94,7 +93,7 @@ namespace DsuDev.NumericConversion
         {
             int resultValue = 0;
 
-            if (hexNumber.StartsWith(HexPrefix))
+            if (hexNumber.StartsWith(NumberBase.HexPrefix))
                 resultValue = Convert.ToInt32(hexNumber, 16);
             else
                 resultValue = int.Parse(hexNumber, System.Globalization.NumberStyles.HexNumber);
@@ -110,7 +109,7 @@ namespace DsuDev.NumericConversion
 		#region Exception handling
 		internal static void ThrowBinaryOutOfRangeException(int number, string binaryConvertedString)
 		{
-			_error = $"number ({number}) length not supported, it has to be less than {BinaryStringMaxLength} digits, current binary length {binaryConvertedString.Length}";
+			_error = $"number ({number}) length not supported, it has to be less than {NumberBase.BinaryStringMaxLength} digits, current binary length {binaryConvertedString.Length}";
 			throw new ArgumentOutOfRangeException(nameof(number), number, _error);
 		}
 

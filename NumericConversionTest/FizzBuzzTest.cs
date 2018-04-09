@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DsuDev.NumericConversion.Constants;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DsuDev.NumericConversion.Test.Fizz
@@ -23,7 +24,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
             // Act
             var result = fizzBuzz.GetFizzBuzz(3);			
 			// Assert
-			Assert.AreEqual(FizzBuzz.Fizz, result);
+			Assert.AreEqual(Wordzz.Fizz, result);
         }
 
         [TestMethod]
@@ -34,7 +35,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
             // Act
             var result = fizzBuzz.GetFizzBuzz(5);
             // Assert
-            Assert.AreEqual(FizzBuzz.Buzz, result);
+            Assert.AreEqual(Wordzz.Buzz, result);
         }
 
         [TestMethod]
@@ -42,7 +43,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
         {
             // Arrange
             var fizzBuzz = new FizzBuzz();
-            var expected = FizzBuzz.Fizz + FizzBuzz.Buzz;
+            var expected = Wordzz.Fizz + Wordzz.Buzz;
             // Act
             var result = fizzBuzz.GetFizzBuzz(15);
             // Assert
@@ -57,7 +58,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
             // Act
             var result = fizzBuzz.GetFizzBuzz(7);
             // Assert
-            Assert.AreEqual(FizzBuzz.Whizz, result);
+            Assert.AreEqual(Wordzz.Whizz, result);
         }
 
         [TestMethod]
@@ -65,7 +66,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
         {
             // Arrange
             var fizzBuzz = new FizzBuzz();
-            var expected = FizzBuzz.Fizz + FizzBuzz.Whizz;
+            var expected = Wordzz.Fizz + Wordzz.Whizz;
             // Act
             var result = fizzBuzz.GetFizzBuzz(21);
             // Assert
@@ -77,7 +78,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
         {
             // Arrange
             var fizzBuzz = new FizzBuzz();
-            var expected = FizzBuzz.Buzz + FizzBuzz.Whizz;
+            var expected = Wordzz.Buzz + Wordzz.Whizz;
             // Act
             var result = fizzBuzz.GetFizzBuzz(35);
             // Assert
@@ -89,7 +90,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
         {
             // Arrange
             var fizzBuzz = new FizzBuzz();
-            var expected = FizzBuzz.Fizz + FizzBuzz.Buzz + FizzBuzz.Whizz;
+            var expected = Wordzz.Fizz + Wordzz.Buzz + Wordzz.Whizz;
             // Act
             var result = fizzBuzz.GetFizzBuzz(105);
             // Assert
@@ -126,7 +127,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			// Act
 			var result = fizzBuzz.GetFizzBuzz(-10);
 			// Assert
-			Assert.AreEqual(FizzBuzz.Buzz, result);
+			Assert.AreEqual(Wordzz.Buzz, result);
 		}
 
 
@@ -169,7 +170,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
-			var expected = new List<string> { "1", "2", FizzBuzz.Fizz, "4", FizzBuzz.Buzz, FizzBuzz.Fizz, FizzBuzz.Whizz, "8", FizzBuzz.Fizz, FizzBuzz.Buzz };
+			var expected = new List<string> { "1", "2", Wordzz.Fizz, "4", Wordzz.Buzz, Wordzz.Fizz, Wordzz.Whizz, "8", Wordzz.Fizz, Wordzz.Buzz };
 			// Act
 			var result = fizzBuzz.GenerateFizzBuzzList(10);
 			// Assert
@@ -181,7 +182,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
-			var expected = new List<string> { "0", "1", "2", FizzBuzz.Fizz, "4", FizzBuzz.Buzz, FizzBuzz.Fizz, FizzBuzz.Whizz, "8", FizzBuzz.Fizz, FizzBuzz.Buzz };
+			var expected = new List<string> { "0", "1", "2", Wordzz.Fizz, "4", Wordzz.Buzz, Wordzz.Fizz, Wordzz.Whizz, "8", Wordzz.Fizz, Wordzz.Buzz };
 			// Act
 			var result = fizzBuzz.GenerateFizzBuzzList(10, true);
 			// Assert
@@ -193,7 +194,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
-			var expected = new List<string> { "-1", "-2", FizzBuzz.Fizz, "-4", FizzBuzz.Buzz, FizzBuzz.Fizz, FizzBuzz.Whizz, "-8", FizzBuzz.Fizz, FizzBuzz.Buzz };
+			var expected = new List<string> { "-1", "-2", Wordzz.Fizz, "-4", Wordzz.Buzz, Wordzz.Fizz, Wordzz.Whizz, "-8", Wordzz.Fizz, Wordzz.Buzz };
 			// Act
 			var result = fizzBuzz.GenerateNegativeFizzBuzzList(-10);
 			// Assert
@@ -205,7 +206,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
-			var expected = new List<string> { "0", "-1", "-2", FizzBuzz.Fizz, "-4", FizzBuzz.Buzz, FizzBuzz.Fizz, FizzBuzz.Whizz, "-8", FizzBuzz.Fizz, FizzBuzz.Buzz };
+			var expected = new List<string> { "0", "-1", "-2", Wordzz.Fizz, "-4", Wordzz.Buzz, Wordzz.Fizz, Wordzz.Whizz, "-8", Wordzz.Fizz, Wordzz.Buzz };
 			// Act
 			var result = fizzBuzz.GenerateNegativeFizzBuzzList(-10, true);
 			// Assert
@@ -217,7 +218,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
-			var expected = new List<string> { FizzBuzz.Buzz, FizzBuzz.Fizz, "-8", FizzBuzz.Whizz, FizzBuzz.Fizz, FizzBuzz.Buzz, "-4", FizzBuzz.Fizz, "-2", "-1" };
+			var expected = new List<string> { Wordzz.Buzz, Wordzz.Fizz, "-8", Wordzz.Whizz, Wordzz.Fizz, Wordzz.Buzz, "-4", Wordzz.Fizz, "-2", "-1" };
 			// Act
 			var result = fizzBuzz.GenerateNegativeFizzBuzzList(-10, reverse: false);
 			// Assert
@@ -231,9 +232,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			var fizzBuzz = new FizzBuzz();
 			var expected = new List<string>
 			{
-				"1", "2", FizzBuzz.Fizz, "4", FizzBuzz.Buzz, FizzBuzz.Fizz, FizzBuzz.Whizz, "8", FizzBuzz.Fizz, FizzBuzz.Buzz,
-				"11", FizzBuzz.Fizz, "13", FizzBuzz.Whizz, FizzBuzz.Fizz + FizzBuzz.Buzz, "16", "17", FizzBuzz.Fizz, "19", FizzBuzz.Buzz,
-				FizzBuzz.Fizz + FizzBuzz.Whizz, "22", "23", FizzBuzz.Fizz, FizzBuzz.Buzz, "26", FizzBuzz.Fizz, FizzBuzz.Whizz, "29", FizzBuzz.Fizz + FizzBuzz.Buzz
+				"1", "2", Wordzz.Fizz, "4", Wordzz.Buzz, Wordzz.Fizz, Wordzz.Whizz, "8", Wordzz.Fizz, Wordzz.Buzz,
+				"11", Wordzz.Fizz, "13", Wordzz.Whizz, Wordzz.Fizz + Wordzz.Buzz, "16", "17", Wordzz.Fizz, "19", Wordzz.Buzz,
+				Wordzz.Fizz + Wordzz.Whizz, "22", "23", Wordzz.Fizz, Wordzz.Buzz, "26", Wordzz.Fizz, Wordzz.Whizz, "29", Wordzz.Fizz + Wordzz.Buzz
 			};
 			// Act
 			var result = fizzBuzz.GenerateFizzBuzzList(30);

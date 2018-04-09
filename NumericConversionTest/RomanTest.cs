@@ -94,7 +94,7 @@ namespace DsuDev.NumericConversion.Test.Roman
 			// Arrange
 			var romanNumeral = new RomanNumeral();
 			// Act
-			var number = romanNumeral.GetRomanValueFromArabicNum(3709);
+			var number = romanNumeral.GetRomanValueFromArabicNum(3999);
 			// Assert
 			Assert.AreEqual(number, "MMMDCCIX");
 		}

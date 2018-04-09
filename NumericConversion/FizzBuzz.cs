@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DsuDev.NumericConversion.Constants;
 
 namespace DsuDev.NumericConversion
 {
@@ -7,21 +8,17 @@ namespace DsuDev.NumericConversion
 	/// Every multiple of 5 = Buzz.
 	/// Every multiple of 7 = Whizz.
 	/// </summary>
-	public class FizzBuzz
+	public class FizzBuzz 
     {
-        public const string Fizz = "Fizz";
-        public const string Buzz = "Buzz";
-        public const string Whizz = "Whizz";
-
         private readonly Dictionary<int, string> wordzzDictionary;
 
         public FizzBuzz()
         {
             wordzzDictionary = new Dictionary<int, string>
             {
-                { 3, Fizz },
-                { 5, Buzz },
-                { 7, Whizz }
+                { 3, Wordzz.Fizz },
+                { 5, Wordzz.Buzz },
+                { 7, Wordzz.Whizz }
             };
         }
 
