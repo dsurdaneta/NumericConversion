@@ -55,7 +55,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 			//Act
             var baseEight = Transform.IntegerToOctalLong(8);
 			//Assert
-            Assert.AreEqual(baseEight, 10);
+            Assert.AreEqual(10, baseEight);
         }
 
 		[TestMethod]
@@ -64,7 +64,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 			//Act
 			var baseEight = Transform.IntegerToOctalString(9);
 			//Assert
-			Assert.AreEqual(baseEight, "11");
+			Assert.AreEqual("11", baseEight);
 		}
 				
         [TestMethod]
@@ -93,7 +93,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 			//Act
             var baseTwo = Transform.IntegerToBinaryString(5);
 			//Assert
-            Assert.AreEqual(baseTwo, "101");
+            Assert.AreEqual("101", baseTwo);
         }
 
 		[TestMethod]
@@ -102,7 +102,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 			//Act
 			var baseTwo = Transform.IntegerToBinaryString(-5);
 			//Assert
-			Assert.AreEqual(baseTwo, "11111111111111111111111111111011");
+			Assert.AreEqual("11111111111111111111111111111011", baseTwo);
 		}
 
 		[TestMethod]
@@ -145,7 +145,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 			//Act
 			var baseEight = Transform.IntegerToOctalString(-9);
 			//Assert
-			Assert.AreEqual(baseEight, "37777777767");
+			Assert.AreEqual("37777777767", baseEight);
 		}
 	}
 }
