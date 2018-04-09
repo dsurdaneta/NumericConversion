@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DsuDev.NumericConversion.Test.Roman
 {
-    [TestClass]
+	[TestClass]
     public class RomanTest
     {
         [TestMethod]
@@ -94,12 +94,23 @@ namespace DsuDev.NumericConversion.Test.Roman
 			// Arrange
 			var romanNumeral = new RomanNumeral();
 			// Act
-			var number = romanNumeral.GetRomanValueFromArabicNum(3999);
+			var number = romanNumeral.GetRomanValueFromArabicNum(3709);
 			// Assert
-			Assert.AreEqual(number, "MMMDCCIX");
+			Assert.AreEqual("MMMDCCIX", number);
 		}
 
-        [TestMethod]
+		[TestMethod]
+		public void RomanNumeral_Maximum()
+		{
+			// Arrange
+			var romanNumeral = new RomanNumeral();
+			// Act
+			var number = romanNumeral.GetRomanValueFromArabicNum(Constants.Roman.MaxAllowedNumber);
+			// Assert
+			Assert.AreEqual(Constants.Roman.MaxAllowedNumeral, number);
+		}
+
+		[TestMethod]
 		[ExpectedException(typeof(KeyNotFoundException))]
         public void RomanNumeral_ArabicKeyNotFound()
         {
@@ -147,6 +158,17 @@ namespace DsuDev.NumericConversion.Test.Roman
 			var number = romanNumeral.GetArabicFromRoman("MCDXXVII");
 			// Assert
 			Assert.AreEqual(1427, number);
+		}
+
+		[TestMethod]
+		public void Roman2Arabic_Maximum()
+		{
+			// Arrange
+			var romanNumeral = new RomanNumeral();
+			// Act
+			var number = romanNumeral.GetArabicFromRoman(Constants.Roman.MaxAllowedNumeral);
+			// Assert
+			Assert.AreEqual(Constants.Roman.MaxAllowedNumber, number);
 		}
 
 		[TestMethod]
