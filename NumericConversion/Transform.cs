@@ -23,7 +23,7 @@ namespace DsuDev.NumericConversion
 				ThrowNegativeBinaryStringUnsupported(number);
 
             long binaryLong = -1;
-            string binaryString = Convert.ToString(number, 2);
+            string binaryString = Convert.ToString(number, NumberBase.BinaryBase);
 
             if (binaryString.Length < NumberBase.BinaryStringMaxLength)
                 binaryLong = Convert.ToInt64(binaryString);
@@ -35,7 +35,7 @@ namespace DsuDev.NumericConversion
 
         public static string IntegerToBinaryString(int number)
         {
-            return Convert.ToString(number, 2); 
+            return Convert.ToString(number, NumberBase.BinaryBase); 
         }
 
         public static long IntegerToOctalLong(int number)
@@ -44,10 +44,10 @@ namespace DsuDev.NumericConversion
 				ThrowNegativeBinaryStringUnsupported(number);
 
 			long octalLong = -1;
-            string binaryString = Convert.ToString(number, 2);
+            string binaryString = Convert.ToString(number, NumberBase.BinaryBase);
 
             if (binaryString.Length < NumberBase.BinaryStringMaxLength)
-                octalLong = Convert.ToInt64(Convert.ToString(number, 8));
+                octalLong = Convert.ToInt64(Convert.ToString(number, NumberBase.OctalBase));
             else
 				ThrowBinaryOutOfRangeException(number, binaryString);
 
@@ -56,7 +56,7 @@ namespace DsuDev.NumericConversion
 
 		public static string IntegerToOctalString(int number)
         {
-            return Convert.ToString(number, 8);
+            return Convert.ToString(number, NumberBase.OctalBase);
         }
 
         /// <summary>
@@ -76,17 +76,17 @@ namespace DsuDev.NumericConversion
         public static int BinaryLongToInt(long binaryNumber)
         {
 			string binaryString = Convert.ToString(binaryNumber);
-            return Convert.ToInt32(binaryString, 2);
+            return Convert.ToInt32(binaryString, NumberBase.BinaryBase);
         }
 
         public static int BinaryStringToInt(string binaryNumber)
         {
-            return Convert.ToInt32(binaryNumber, 2);
+            return Convert.ToInt32(binaryNumber, NumberBase.BinaryBase);
         }
 
         public static int OctalStringToInt(string octalNumber)
         {
-            return Convert.ToInt32(octalNumber, 8);
+            return Convert.ToInt32(octalNumber, NumberBase.OctalBase);
         }
 
         public static int HexStringToInt(string hexNumber)
@@ -94,7 +94,7 @@ namespace DsuDev.NumericConversion
             int resultValue = 0;
 
             if (hexNumber.StartsWith(NumberBase.HexPrefix))
-                resultValue = Convert.ToInt32(hexNumber, 16);
+                resultValue = Convert.ToInt32(hexNumber, NumberBase.HexBase);
             else
                 resultValue = int.Parse(hexNumber, System.Globalization.NumberStyles.HexNumber);
 
