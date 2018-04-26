@@ -3,17 +3,26 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DsuDev.NumericConversion.Test.Convert
 {
-    [TestClass]
-    public class TransformTest
-    {
-        [TestMethod]
-        public void Transform_isNotNull()
-        {
+	[TestClass]
+	public class TransformTest
+	{
+		[TestMethod]
+		public void Transform_isNotNull()
+		{
 			//Act
-            var result = new Transform();
+			var result = new Transform();
 			//Assert
-            Assert.IsNotNull(result);
-        }
+			Assert.IsNotNull(result);
+		}
+
+		[TestMethod]
+		public void Transform_ValidationMessageisNotNull()
+		{
+			//Act
+			var result = new Transform();
+			//Assert
+			Assert.IsNotNull(result.ValidationMessage);
+		}
 
 		[TestMethod]
 		public void Transform_notANumber()
@@ -34,29 +43,29 @@ namespace DsuDev.NumericConversion.Test.Convert
 		}
 
 		[TestMethod]
-        public void Transform_intToBinaryLongTest()
-        {
+		public void Transform_intToBinaryLongTest()
+		{
 			//Act
-            long baseTwo = Transform.IntegerToBinaryLong(3);
+			long baseTwo = Transform.IntegerToBinaryLong(3);
 			//Assert
-            Assert.AreEqual(baseTwo, 11);
-        }
+			Assert.AreEqual(baseTwo, 11);
+		}
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Transform_intToBinaryLongTooLongExceptionTest()
-        {
-            Transform.IntegerToBinaryLong(2132132135);
-        }
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void Transform_intToBinaryLongTooLongExceptionTest()
+		{
+			Transform.IntegerToBinaryLong(2132132135);
+		}
 
-        [TestMethod]
-        public void Transform_intToOctalLongTest()
-        {
+		[TestMethod]
+		public void Transform_intToOctalLongTest()
+		{
 			//Act
-            var baseEight = Transform.IntegerToOctalLong(8);
+			var baseEight = Transform.IntegerToOctalLong(8);
 			//Assert
-            Assert.AreEqual(10, baseEight);
-        }
+			Assert.AreEqual(10, baseEight);
+		}
 
 		[TestMethod]
 		public void Transform_intToOctalStringTest()
@@ -67,34 +76,34 @@ namespace DsuDev.NumericConversion.Test.Convert
 			Assert.AreEqual("11", baseEight);
 		}
 				
-        [TestMethod]
-        public void Transform_hexStringWithOutPrefixTest()
-        {
+		[TestMethod]
+		public void Transform_hexStringWithOutPrefixTest()
+		{
 			//Act
-            var hexString = Transform.IntegerToHexString(27, false);
+			var hexString = Transform.IntegerToHexString(27, false);
 			//Assert
-            Assert.IsFalse(hexString.StartsWith("0x"));
+			Assert.IsFalse(hexString.StartsWith("0x"));
 			Assert.AreEqual("1B", hexString);
-        }
+		}
 
-        [TestMethod]
-        public void Transform_hexPrefixTest()
-        {
+		[TestMethod]
+		public void Transform_hexPrefixTest()
+		{
 			//Act
-            var hexString = Transform.IntegerToHexString(28, true);
+			var hexString = Transform.IntegerToHexString(28, true);
 			//Assert
-            Assert.IsTrue(hexString.StartsWith("0x"));
+			Assert.IsTrue(hexString.StartsWith("0x"));
 			Assert.AreEqual("0x1C", hexString);
 		}
 
-        [TestMethod]
-        public void Transform_intToBinaryStringTest()
-        {
+		[TestMethod]
+		public void Transform_intToBinaryStringTest()
+		{
 			//Act
-            var baseTwo = Transform.IntegerToBinaryString(5);
+			var baseTwo = Transform.IntegerToBinaryString(5);
 			//Assert
-            Assert.AreEqual("101", baseTwo);
-        }
+			Assert.AreEqual("101", baseTwo);
+		}
 
 		[TestMethod]
 		public void Transform_negativeIntToBinaryStringTest()
@@ -146,6 +155,53 @@ namespace DsuDev.NumericConversion.Test.Convert
 			var baseEight = Transform.IntegerToOctalString(-9);
 			//Assert
 			Assert.AreEqual("37777777767", baseEight);
+		}
+
+		[TestMethod]
+		public void Transform_HexStringToInt()
+		{
+			//Act
+			var sut = Transform.HexStringToInt("3AF");
+			//Assert
+			Assert.AreEqual(943, sut);
+		}
+
+		[TestMethod]
+		public void Transform_HexStringToIntWithPrefix()
+		{
+			//Act
+			var sut = Transform.HexStringToInt("0x3AF");
+			//Assert
+			Assert.AreEqual(943, sut);
+		}
+
+		[TestMethod]
+		public void Transform_OctalStringToInt()
+		{
+			//Act
+			var sut = Transform.OctalStringToInt("14");
+			//Assert
+			Assert.AreEqual(12, sut);
+		}
+
+		[TestMethod]
+		public void Transform_BinaryStringToInt()
+		{
+			//Act
+			var sut = Transform.BinaryStringToInt("1001");
+			//Assert
+			Assert.AreEqual(9, sut);
+		}
+
+		[TestMethod]
+		public void Transform_BinaryLongToInt()
+		{
+			//Arrange
+			long binaryNumber = 11111110111000111;
+			//Act
+			var sut = Transform.BinaryLongToDecimalInt(binaryNumber);
+			//Assert
+			Assert.AreEqual(130503, sut);
 		}
 	}
 }
