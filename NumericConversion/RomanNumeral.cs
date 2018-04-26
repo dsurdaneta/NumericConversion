@@ -8,78 +8,74 @@ namespace DsuDev.NumericConversion
 	/// <summary>
 	/// Class to handle conversions between RomanNumeral and Arabic numbers.
 	/// </summary>
-    public class RomanNumeral 
+	public class RomanNumeral 
 	{
-        protected readonly Dictionary<int, string> baseNumbers;        
+		protected readonly Dictionary<int, string> BaseNumbers;        
 		private static string _error;
 		public string ValidationMessage => _error;
 
 		public RomanNumeral()
-        {
+		{
 			_error = "";
 
-            baseNumbers = new Dictionary<int, string>();
-            baseNumbers.Add(1, "I");
-            baseNumbers.Add(4, "IV");
-            baseNumbers.Add(5, "V");
-            baseNumbers.Add(9, "IX");
-            baseNumbers.Add(10, "X");
-            baseNumbers.Add(40, "XL");
-            baseNumbers.Add(50, "L");
-            baseNumbers.Add(90, "XC");
-            baseNumbers.Add(100, "C");
-            baseNumbers.Add(400, "CD");
-            baseNumbers.Add(500, "D");
-            baseNumbers.Add(900, "CM");
-            baseNumbers.Add(1000, "M");
-        }
+			BaseNumbers = new Dictionary<int, string>
+			{
+				{1, "I"},
+				{4, "IV"},
+				{5, "V"},
+				{9, "IX"},
+				{10, "X"},
+				{40, "XL"},
+				{50, "L"},
+				{90, "XC"},
+				{100, "C"},
+				{400, "CD"},
+				{500, "D"},
+				{900, "CM"},
+				{1000, "M"}
+			};
+		}
 
-        public string GetRomanValueFromArabicNum(int number)
-        {
-            if (number < 1 || number >= Roman.MaxNumber)
-            {
+		public string GetRomanValueFromArabicNum(int number)
+		{
+			if (number < 1 || number >= Roman.MaxNumber)
+			{
 				_error = $"{number} must be a positive integer of value less than {Roman.MaxNumber}";
 				throw new ArgumentOutOfRangeException(ValidationMessage);
-            }
+			}
 
-            string value = "";
-            int current = number, i = 0;
-            var keys = baseNumbers.AsEnumerable().Reverse().ToArray();
+			string value = "";
+			int current = number, i = 0;
+			var keys = BaseNumbers.AsEnumerable().Reverse().ToArray();
 
-            while (current > 0)
-            {
-                var item = keys[i];
-                if (current < item.Key)
-                {
-                    i++;
-                    continue;
-                }
-                current -= item.Key;
-                value += item.Value;
-            }
-            return value;
-        }
+			while (current > 0)
+			{
+				var item = keys[i];
+				if (current < item.Key)
+				{
+					i++;
+					continue;
+				}
+				current -= item.Key;
+				value += item.Value;
+			}
+			return value;
+		}
 
-        public int GetArabicFromRoman(string romanNumeral)
-        {
+		public int GetArabicFromRoman(string romanNumeral)
+		{
 			if (string.IsNullOrEmpty(romanNumeral))
 			{
 				_error = $"{nameof(romanNumeral)} should not be null nor empty";
 				throw new ArgumentNullException(ValidationMessage);
 			}
-
-            var notAllowedValues = romanNumeral.Where(x => !baseNumbers.ContainsValue(x.ToString())).ToList();
-			if (notAllowedValues.Count > 0)
-			{
-				_error = $"{romanNumeral} contains not allowed characters, such as {notAllowedValues.FirstOrDefault().ToString()}";
-				throw new KeyNotFoundException(ValidationMessage);
-			}
-
 			int total = 0, lastValue = 0;
+			if (!IsAnAllowedRomanNumeral(romanNumeral)) return total;
+
 			for (int i = romanNumeral.Length - 1; i >= 0; i--)
 			{
 				string currentNumeral = romanNumeral[i].ToString();
-				int currentValue = baseNumbers.First(x => x.Value == currentNumeral).Key;
+				int currentValue = BaseNumbers.First(x => x.Value == currentNumeral).Key;
 
 				if (currentValue < lastValue)
 					total -= currentValue;
@@ -90,7 +86,19 @@ namespace DsuDev.NumericConversion
 				}
 			}
 			return total;
-        }
+		}
+
+		private bool IsAnAllowedRomanNumeral(string romanNumeral)
+		{
+			var notAllowedValues = romanNumeral.Where(x => !BaseNumbers.ContainsValue(x.ToString())).ToList();
+			if (notAllowedValues.Count > 0)
+			{
+				_error = $"{romanNumeral} contains not allowed characters, such as {notAllowedValues.FirstOrDefault().ToString()}";
+				throw new KeyNotFoundException(ValidationMessage);
+			}
+
+			return true;
+		}
 
 		public List<string> RangeRomanList(int start, int count)
 		{
@@ -103,5 +111,5 @@ namespace DsuDev.NumericConversion
 
 			return romancollection;
 		}
-    }
+	}
 }
