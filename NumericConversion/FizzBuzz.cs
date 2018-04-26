@@ -9,43 +9,43 @@ namespace DsuDev.NumericConversion
 	/// Every multiple of 7 = Whizz.
 	/// </summary>
 	public class FizzBuzz 
-    {
-        private readonly Dictionary<int, string> wordzzDictionary;
+	{
+		private readonly Dictionary<int, string> _wordzzDictionary;
 
-        public FizzBuzz()
-        {
-            wordzzDictionary = new Dictionary<int, string>
-            {
-                { 3, Wordzz.Fizz },
-                { 5, Wordzz.Buzz },
-                { 7, Wordzz.Whizz }
-            };
-        }
+		public FizzBuzz()
+		{
+			_wordzzDictionary = new Dictionary<int, string>
+			{
+				{ 3, Wordzz.Fizz },
+				{ 5, Wordzz.Buzz },
+				{ 7, Wordzz.Whizz }
+			};
+		}
 
-        public string GetFizzBuzz(int number)
-        {
-            string result = TranslateToWords(number);
+		public string GetFizzBuzz(int number)
+		{
+			string result = TranslateToWords(number);
 
-            if (string.IsNullOrEmpty(result))
-                result = number.ToString();
+			if (string.IsNullOrEmpty(result))
+				result = number.ToString();
 
-            return result;
-        }
+			return result;
+		}
 
-        internal string TranslateToWords(int number)
-        {
+		internal string TranslateToWords(int number)
+		{
 			if (number == 0)
 				return number.ToString();
 
 			string result = "";						
 
-            foreach (KeyValuePair<int, string> item in wordzzDictionary)
-            {
-                if (number % item.Key == 0)
-                    result += item.Value;
-            }
-            return result;
-        }
+			foreach (KeyValuePair<int, string> item in _wordzzDictionary)
+			{
+				if (number % item.Key == 0)
+					result += item.Value;
+			}
+			return result;
+		}
 
 		/// <summary>
 		/// Generates a list of FizzBuzzWhizz numbers

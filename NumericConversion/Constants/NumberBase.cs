@@ -7,6 +7,7 @@
 		internal const int OctalBase = 8;
 		internal const int DecimalBase = 10;
 		internal const int HexBase = 16;
+
 		public const int BinaryStringMaxLength = 20;
 	}
 }
