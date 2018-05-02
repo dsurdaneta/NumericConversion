@@ -11,12 +11,12 @@ namespace DsuDev.NumericConversion
 	public class RomanNumeral 
 	{
 		protected readonly Dictionary<int, string> BaseNumbers;        
-		private static string _error;
-		public string ValidationMessage => _error;
+		protected static string Error;
+		public string ValidationMessage => Error;
 
 		public RomanNumeral()
 		{
-			_error = "";
+			Error = "";
 
 			BaseNumbers = new Dictionary<int, string>
 			{
@@ -40,7 +40,7 @@ namespace DsuDev.NumericConversion
 		{
 			if (number < 1 || number >= Roman.MaxNumber)
 			{
-				_error = $"{number} must be a positive integer of value less than {Roman.MaxNumber}";
+				Error = $"{number} must be a positive integer of value less than {Roman.MaxNumber}";
 				throw new ArgumentOutOfRangeException(ValidationMessage);
 			}
 
@@ -66,7 +66,7 @@ namespace DsuDev.NumericConversion
 		{
 			if (string.IsNullOrEmpty(romanNumeral))
 			{
-				_error = $"{nameof(romanNumeral)} should not be null nor empty";
+				Error = $"{nameof(romanNumeral)} should not be null nor empty";
 				throw new ArgumentNullException(ValidationMessage);
 			}
 			int total = 0, lastValue = 0;
@@ -91,9 +91,10 @@ namespace DsuDev.NumericConversion
 		private bool IsAnAllowedRomanNumeral(string romanNumeral)
 		{
 			var notAllowedValues = romanNumeral.Where(x => !BaseNumbers.ContainsValue(x.ToString())).ToList();
+
 			if (notAllowedValues.Count > 0)
 			{
-				_error = $"{romanNumeral} contains not allowed characters, such as {notAllowedValues.FirstOrDefault().ToString()}";
+				Error = $"{romanNumeral} contains not allowed characters, such as {notAllowedValues.FirstOrDefault().ToString()}";
 				throw new KeyNotFoundException(ValidationMessage);
 			}
 

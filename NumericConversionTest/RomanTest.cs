@@ -6,58 +6,64 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DsuDev.NumericConversion.Test.Roman
 {
 	[TestClass]
-    public class RomanTest
-    {
-        [TestMethod]
-        public void RomanNumeral_IsNotNull()
-        {
-            // Arrange
-            var romanNumeral = new RomanNumeral();
-            // Act
-            // Assert
-            Assert.IsNotNull(romanNumeral);
-        }        
+	public class RomanTest
+	{
+		[TestMethod]
+		public void RomanNumeral_IsNotNull()
+		{
+			// Arrange
+			var romanNumeral = new RomanNumeral();
+			// Act
+			// Assert
+			Assert.IsNotNull(romanNumeral);
+		}        
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void RomanNumeral_MaxRange()
-        {
-            // Arrange
-            var romanNumeral = new RomanNumeral();
-            // Act
-            romanNumeral.GetRomanValueFromArabicNum(5000);
-            // Assert
-        }
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void RomanNumeral_MaxRange()
+		{
+			// Arrange
+			var romanNumeral = new RomanNumeral();
+			// Act
+			romanNumeral.GetRomanValueFromArabicNum(5000);
+			// Assert
+		}
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void RomanNumeral_MinRange()
-        {
-            // Arrange
-            var romanNumeral = new RomanNumeral();
-            // Act
-            romanNumeral.GetRomanValueFromArabicNum(-7);
-            // Assert
-        }
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
+		public void RomanNumeral_MinRange()
+		{
+			// Arrange
+			var romanNumeral = new RomanNumeral();
+			// Act
+			romanNumeral.GetRomanValueFromArabicNum(-7);
+			// Assert
+		}
 
-        [TestMethod]
-        public void RomanNumeral_1to3()
-        {
-            // Arrange
-            var romanNumeral = new RomanNumeral();
-			var expected = new List<string> { "I", "II", "III" };
+		[TestMethod]
+		public void RomanNumeral_1to3()
+		{
+			// Arrange
+			var romanNumeral = new RomanNumeral();
+			var expected = new List<string>
+			{
+				"I", "II", "III"
+			};
 			// Act
 			var actual = romanNumeral.RangeRomanList(1, 3);			
 			// Assert
 			CollectionAssert.AreEqual(expected, actual);           
-        }
+		}
 
 		[TestMethod]
 		public void RomanNumeral_4to8()
 		{
 			// Arrange
-            var romanNumeral = new RomanNumeral();
-			var expected = new List<string> { "IV", "V", "VI", "VII", "VIII" };
+			var romanNumeral = new RomanNumeral();
+			var expected = new List<string>
+			{
+				"IV", "V", "VI", "VII", "VIII"
+			};
 			// Act
 			var actual = romanNumeral.RangeRomanList(4, 5);			
 			// Assert
@@ -69,7 +75,10 @@ namespace DsuDev.NumericConversion.Test.Roman
 		{
 			// Arrange
 			var romanNumeral = new RomanNumeral();
-			var expected = new List<string> { "IX", "X", "XI", "XII", "XIII" };
+			var expected = new List<string>
+			{
+				"IX", "X", "XI", "XII", "XIII"
+			};
 			// Act
 			var actual = romanNumeral.RangeRomanList(9, 5);
 			// Assert
@@ -81,7 +90,10 @@ namespace DsuDev.NumericConversion.Test.Roman
 		{
 			// Arrange
 			var romanNumeral = new RomanNumeral();
-			var expected = new List<string> { "XIV", "XV", "XVI", "XVII", "XVIII" };
+			var expected = new List<string>
+			{
+				"XIV", "XV", "XVI", "XVII", "XVIII"
+			};
 			// Act
 			var actual = romanNumeral.RangeRomanList(14, 5);			
 			// Assert
@@ -112,18 +124,18 @@ namespace DsuDev.NumericConversion.Test.Roman
 
 		[TestMethod]
 		[ExpectedException(typeof(KeyNotFoundException))]
-        public void RomanNumeral_ArabicKeyNotFound()
-        {
-            // Arrange
-            var romanNumeral = new RomanNumeral();
+		public void Roman2Arabic_KeyNotFound()
+		{
+			// Arrange
+			var romanNumeral = new RomanNumeral();
 			// Act
 			romanNumeral.GetArabicFromRoman("DUX");
 			// Assert
-        }
+		}
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentNullException))]
-		public void RomanNumeral_ArabicNull()
+		public void Roman2Arabic_ArgumentNull()
 		{
 			// Arrange
 			var romanNumeral = new RomanNumeral();

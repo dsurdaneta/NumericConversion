@@ -12,10 +12,10 @@ namespace DsuDev.NumericConversion
 	/// </summary>
 	public class Transform
 	{                
-		protected static string _error;
-		public string ValidationMessage => _error;
+		protected static string Error;
+		public string ValidationMessage => Error;
 
-		public Transform() { _error = ""; }
+		public Transform() { Error = ""; }
 
 		public static long IntegerToBinaryLong(int number)
 		{
@@ -105,14 +105,14 @@ namespace DsuDev.NumericConversion
 		#region Exception handling
 		internal static void ThrowBinaryOutOfRangeException(int number, string binaryConvertedString)
 		{
-			_error = $"number ({number}) length not supported, it has to be less than {NumberBase.BinaryStringMaxLength} digits, current binary length {binaryConvertedString.Length}";
-			throw new ArgumentOutOfRangeException(nameof(number), number, _error);
+			Error = $"number ({number}) length not supported, it has to be less than {NumberBase.BinaryStringMaxLength} digits, current binary length {binaryConvertedString.Length}";
+			throw new ArgumentOutOfRangeException(nameof(number), number, Error);
 		}
 
 		internal static void ThrowNegativeBinaryStringUnsupported(int number)
 		{
-			_error = $"Negative numbers casting ({number}) is not supported for this method";
-			throw new InvalidCastException(_error);
+			Error = $"Negative numbers casting ({number}) is not supported for this method";
+			throw new InvalidCastException(Error);
 		}
 		#endregion
 	}
