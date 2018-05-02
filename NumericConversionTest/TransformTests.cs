@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DsuDev.NumericConversion.Test.Convert
 {
 	[TestClass]
-	public class TransformTest
+	public class TransformTests
 	{
 		[TestMethod]
 		public void Transform_isNotNull()

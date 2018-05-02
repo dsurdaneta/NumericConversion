@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DsuDev.NumericConversion.Test.Fizz
 {
 	[TestClass]
-	public class FizzBuzzTest
+	public class FizzBuzzTests
 	{
 		[TestMethod]
 		public void FizzBuzz_isNotNull()

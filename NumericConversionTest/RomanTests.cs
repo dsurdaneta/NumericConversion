@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DsuDev.NumericConversion.Test.Roman
 {
 	[TestClass]
-	public class RomanTest
+	public class RomanTests
 	{
 		[TestMethod]
 		public void RomanNumeral_IsNotNull()

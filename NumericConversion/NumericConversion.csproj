@@ -43,6 +43,7 @@
     <Compile Include="Constants\NumberBase.cs" />
     <Compile Include="Constants\Roman.cs" />
     <Compile Include="Constants\Wordzz.cs" />
+    <Compile Include="DigitName.cs" />
     <Compile Include="FizzBuzz.cs" />
     <Compile Include="RomanNumeral.cs" />
     <Compile Include="Transform.cs" />
