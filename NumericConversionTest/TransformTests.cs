@@ -7,7 +7,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 	public class TransformTests
 	{
 		[TestMethod]
-		public void Transform_isNotNull()
+		public void Transform_IsNotNull()
 		{
 			//Act
 			var result = new Transform();
@@ -25,7 +25,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 		}
 
 		[TestMethod]
-		public void Transform_notANumber()
+		public void Transform_NotANumber()
 		{
 			//Act
 			var result = Transform.IsNumeric("Hello");
@@ -34,7 +34,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 		}
 
 		[TestMethod]
-		public void Transform_isNumeric()
+		public void Transform_IsNumeric()
 		{
 			//Act
 			var result = Transform.IsNumeric("1");
@@ -43,7 +43,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 		}
 
 		[TestMethod]
-		public void Transform_intToBinaryLongTest()
+		public void Transform_IntToBinaryLongTest()
 		{
 			//Act
 			long baseTwo = Transform.IntegerToBinaryLong(3);
@@ -53,13 +53,13 @@ namespace DsuDev.NumericConversion.Test.Convert
 
 		[TestMethod]
 		[ExpectedException(typeof(ArgumentOutOfRangeException))]
-		public void Transform_intToBinaryLongTooLongExceptionTest()
+		public void Transform_IntToBinaryLongTooLongExceptionTest()
 		{
 			Transform.IntegerToBinaryLong(2132132135);
 		}
 
 		[TestMethod]
-		public void Transform_intToOctalLongTest()
+		public void Transform_IntToOctalLongTest()
 		{
 			//Act
 			var baseEight = Transform.IntegerToOctalLong(8);
@@ -68,7 +68,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 		}
 
 		[TestMethod]
-		public void Transform_intToOctalStringTest()
+		public void Transform_IntToOctalStringTest()
 		{
 			//Act
 			var baseEight = Transform.IntegerToOctalString(9);
@@ -77,7 +77,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 		}
 				
 		[TestMethod]
-		public void Transform_hexStringWithOutPrefixTest()
+		public void Transform_HexStringWithOutPrefixTest()
 		{
 			//Act
 			var hexString = Transform.IntegerToHexString(27, false);
@@ -87,7 +87,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 		}
 
 		[TestMethod]
-		public void Transform_hexPrefixTest()
+		public void Transform_HexPrefixTest()
 		{
 			//Act
 			var hexString = Transform.IntegerToHexString(28, true);
@@ -97,7 +97,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 		}
 
 		[TestMethod]
-		public void Transform_intToBinaryStringTest()
+		public void Transform_IntToBinaryStringTest()
 		{
 			//Act
 			var baseTwo = Transform.IntegerToBinaryString(5);
@@ -106,7 +106,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 		}
 
 		[TestMethod]
-		public void Transform_negativeIntToBinaryStringTest()
+		public void Transform_NegativeIntToBinaryStringTest()
 		{
 			//Act
 			var baseTwo = Transform.IntegerToBinaryString(-5);
@@ -116,20 +116,20 @@ namespace DsuDev.NumericConversion.Test.Convert
 
 		[TestMethod]
 		[ExpectedException(typeof(InvalidCastException))]
-		public void Transform_negativeIntToBinaryLongUnsupported_Test()
+		public void Transform_NegativeIntToBinaryLongUnsupported_Test()
 		{
 			long baseTwo = Transform.IntegerToBinaryLong(-1);
 		}
 
 		[TestMethod]
 		[ExpectedException(typeof(InvalidCastException))]
-		public void Transform_negativeIntToOctalLongUnsupported_Test()
+		public void Transform_NegativeIntToOctalLongUnsupported_Test()
 		{
 			long baseEight = Transform.IntegerToOctalLong(-1);
 		}
 
 		[TestMethod]
-		public void Transform_negativeHexStringWithOutPrefixTest()
+		public void Transform_NegativeHexStringWithOutPrefixTest()
 		{
 			//Act
 			var hexString = Transform.IntegerToHexString(-27, false);
@@ -139,7 +139,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 		}
 
 		[TestMethod]
-		public void Transform_negativeHexPrefixTest()
+		public void Transform_NegativeHexPrefixTest()
 		{
 			//Act
 			var hexString = Transform.IntegerToHexString(-28, true);
@@ -149,7 +149,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 		}
 
 		[TestMethod]
-		public void Transform_negativeIntToOctalStringTest()
+		public void Transform_NegativeIntToOctalStringTest()
 		{
 			//Act
 			var baseEight = Transform.IntegerToOctalString(-9);

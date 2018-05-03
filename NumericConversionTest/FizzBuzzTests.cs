@@ -8,7 +8,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 	public class FizzBuzzTests
 	{
 		[TestMethod]
-		public void FizzBuzz_isNotNull()
+		public void FizzBuzz_IsNotNull()
 		{
 			// Arrange
 			var result = new FizzBuzz();
@@ -17,7 +17,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}		      
 
 		[TestMethod]
-		public void FizzBuzz_isFizz()
+		public void FizzBuzz_IsFizz()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
@@ -28,7 +28,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 
 		[TestMethod]
-		public void FizzBuzz_isBuzz()
+		public void FizzBuzz_IsBuzz()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
@@ -39,7 +39,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 
 		[TestMethod]
-		public void FizzBuzz_isFizzBuzz()
+		public void FizzBuzz_IsFizzBuzz()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
@@ -51,7 +51,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 
 		[TestMethod]
-		public void FizzBuzz_isWhizz()
+		public void FizzBuzz_IsWhizz()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
@@ -62,7 +62,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 
 		[TestMethod]
-		public void FizzBuzz_isFizzWhizz()
+		public void FizzBuzz_IsFizzWhizz()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
@@ -74,7 +74,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 
 		[TestMethod]
-		public void FizzBuzz_isBuzzWhizz()
+		public void FizzBuzz_IsBuzzWhizz()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
@@ -86,7 +86,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 
 		[TestMethod]
-		public void FizzBuzz_isFizzBuzzWhizz()
+		public void FizzBuzz_IsFizzBuzzWhizz()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
@@ -98,7 +98,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 
 		[TestMethod]
-		public void FizzBuzz_justANumber()
+		public void FizzBuzz_JustANumber()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
@@ -109,7 +109,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 
 		[TestMethod]
-		public void FizzBuzz_isZero()
+		public void FizzBuzz_IsZero()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
@@ -120,7 +120,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 
 		[TestMethod]
-		public void FizzBuzz_negativeWord()
+		public void FizzBuzz_NegativeWord()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
@@ -131,7 +131,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 		
 		[TestMethod]
-		public void FizzBuzz_negativeNumber()
+		public void FizzBuzz_NegativeNumber()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
@@ -142,7 +142,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 
 		[TestMethod]
-		public void FizzBuzz_zeroList()
+		public void FizzBuzz_ZeroList()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
@@ -154,7 +154,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 
 		[TestMethod]
-		public void FizzBuzz_zeroListIncludeZero()
+		public void FizzBuzz_ZeroListIncludeZero()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
@@ -196,7 +196,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 
 		[TestMethod]
-		public void FizzBuzz_negative10List()
+		public void FizzBuzz_Negative10List()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
@@ -211,7 +211,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 
 		[TestMethod]
-		public void FizzBuzz_negative10ListIncludeZero()
+		public void FizzBuzz_Negative10ListIncludeZero()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
@@ -226,7 +226,7 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		}
 
 		[TestMethod]
-		public void FizzBuzz_negative10ListWithReverseFalse()
+		public void FizzBuzz_Negative10ListWithReverseFalse()
 		{
 			// Arrange
 			var fizzBuzz = new FizzBuzz();

@@ -7,7 +7,7 @@ namespace DsuDev.NumericConversion.Test.Digit
 	public class DigitNameTests
 	{
 		[TestMethod]
-		public void DigitName_NotNull()
+		public void DigitName_IsNotNull()
 		{
 			//Act
 			var sut = new DigitName();
