@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace DsuDev.NumericConversion
 {
@@ -28,7 +29,7 @@ namespace DsuDev.NumericConversion
 		public string Translate(int digitNumber)
 		{
 			if (digitNumber < 0 || digitNumber > 9)
-				return "";
+				return string.Empty;
 
 			return DigitsWords.First(x => x.Key == digitNumber).Value;
 		}
@@ -41,6 +42,34 @@ namespace DsuDev.NumericConversion
 				return digitPair.Key;
 
 			throw new InvalidCastException("Digit could not be translated.");
+		}
+
+		public string TranslateSeveralDigits(int fullNumber)
+		{
+			StringBuilder builder = new StringBuilder();
+			string numberString = fullNumber.ToString();
+
+			foreach (var item in numberString)
+			{
+				int digit = Convert.ToInt32(item.ToString());
+				builder.Append(Translate(digit));
+			}
+
+			return builder.ToString();
+		}
+
+		public List<string> GetDigitNameList(int fullNumber)
+		{
+			List<string> digitNames = new List<string>();
+			string numberString = fullNumber.ToString();
+
+			foreach (var item in numberString)
+			{
+				int digit = Convert.ToInt32(item.ToString());
+				digitNames.Add(Translate(digit));
+			}
+
+			return digitNames;
 		}
 	}
 }

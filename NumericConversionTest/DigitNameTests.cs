@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DsuDev.NumericConversion.Test.Digit
@@ -44,7 +45,7 @@ namespace DsuDev.NumericConversion.Test.Digit
 			//Arrange
 			var digitName = new DigitName();
 			//Act
-			var sut = digitName.Translate("");
+			var sut = digitName.Translate(string.Empty);
 		}
 
 		[TestMethod]
@@ -65,7 +66,54 @@ namespace DsuDev.NumericConversion.Test.Digit
 			//Act
 			var sut = digitName.Translate(-2);
 			//Assert
-			Assert.AreEqual("", sut);
+			Assert.AreEqual(string.Empty, sut);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(InvalidOperationException))]
+		public void DigitName_TranslateNotAlphanumeric()
+		{
+			//Arrange
+			var digitName = new DigitName();
+			//Act
+			var sut = digitName.Translate("*#...");
+		}
+
+		[TestMethod]
+		public void DigitName_TranslateBigNumber()
+		{
+			//Arrange
+			var digitName = new DigitName();
+			//Act
+			var sut = digitName.Translate(12354);
+			//Assert
+			Assert.AreEqual(string.Empty, sut);
+		}
+
+		[TestMethod]
+		public void DigitName_TranslateSeveralDigits()
+		{
+			//Arrange
+			var digitName = new DigitName();
+			//Act
+			var sut = digitName.TranslateSeveralDigits(354);
+			//Assert
+			Assert.AreEqual("ThreeFiveFour", sut);
+		}
+
+		[TestMethod]
+		public void DigitName_GetDigitNameList()
+		{
+			//Arrange
+			var digitName = new DigitName();
+			var expected = new List<string>
+			{
+				"One","Two","Three"
+			};
+			//Act
+			var sut = digitName.GetDigitNameList(123);
+			//Assert
+			CollectionAssert.AreEqual(expected, sut);
 		}
 	}
 }
