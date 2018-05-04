@@ -10,45 +10,45 @@ namespace DsuDev.NumericConversion.Test.Convert
 		public void Transform_IsNotNull()
 		{
 			//Act
-			var result = new Transform();
+			var sut = new Transform();
 			//Assert
-			Assert.IsNotNull(result);
+			Assert.IsNotNull(sut);
 		}
 
 		[TestMethod]
 		public void Transform_ValidationMessageisNotNull()
 		{
 			//Act
-			var result = new Transform();
+			var sut = new Transform();
 			//Assert
-			Assert.IsNotNull(result.ValidationMessage);
+			Assert.IsNotNull(sut.ValidationMessage);
 		}
 
 		[TestMethod]
 		public void Transform_NotANumber()
 		{
 			//Act
-			var result = Transform.IsNumeric("Hello");
+			var sut = Transform.IsNumeric("Hello");
 			//Assert
-			Assert.IsFalse(result);
+			Assert.IsFalse(sut);
 		}
 
 		[TestMethod]
 		public void Transform_IsNumeric()
 		{
 			//Act
-			var result = Transform.IsNumeric("1");
+			var sut = Transform.IsNumeric("1");
 			//Assert
-			Assert.IsTrue(result);
+			Assert.IsTrue(sut);
 		}
 
 		[TestMethod]
 		public void Transform_IntToBinaryLongTest()
 		{
 			//Act
-			long baseTwo = Transform.IntegerToBinaryLong(3);
+			long sut = Transform.IntegerToBinaryLong(3);
 			//Assert
-			Assert.AreEqual(baseTwo, 11);
+			Assert.AreEqual(11, sut);
 		}
 
 		[TestMethod]
@@ -62,99 +62,99 @@ namespace DsuDev.NumericConversion.Test.Convert
 		public void Transform_IntToOctalLongTest()
 		{
 			//Act
-			var baseEight = Transform.IntegerToOctalLong(8);
+			var sut = Transform.IntegerToOctalLong(8);
 			//Assert
-			Assert.AreEqual(10, baseEight);
+			Assert.AreEqual(10, sut);
 		}
 
 		[TestMethod]
 		public void Transform_IntToOctalStringTest()
 		{
 			//Act
-			var baseEight = Transform.IntegerToOctalString(9);
+			var sut = Transform.IntegerToOctalString(9);
 			//Assert
-			Assert.AreEqual("11", baseEight);
+			Assert.AreEqual("11", sut);
 		}
 				
 		[TestMethod]
 		public void Transform_HexStringWithOutPrefixTest()
 		{
 			//Act
-			var hexString = Transform.IntegerToHexString(27, false);
+			var sut = Transform.IntegerToHexString(27, false);
 			//Assert
-			Assert.IsFalse(hexString.StartsWith("0x"));
-			Assert.AreEqual("1B", hexString);
+			Assert.IsFalse(sut.StartsWith("0x"));
+			Assert.AreEqual("1B", sut);
 		}
 
 		[TestMethod]
 		public void Transform_HexPrefixTest()
 		{
 			//Act
-			var hexString = Transform.IntegerToHexString(28, true);
+			var sut = Transform.IntegerToHexString(28, true);
 			//Assert
-			Assert.IsTrue(hexString.StartsWith("0x"));
-			Assert.AreEqual("0x1C", hexString);
+			Assert.IsTrue(sut.StartsWith("0x"));
+			Assert.AreEqual("0x1C", sut);
 		}
 
 		[TestMethod]
 		public void Transform_IntToBinaryStringTest()
 		{
 			//Act
-			var baseTwo = Transform.IntegerToBinaryString(5);
+			var sut = Transform.IntegerToBinaryString(5);
 			//Assert
-			Assert.AreEqual("101", baseTwo);
+			Assert.AreEqual("101", sut);
 		}
 
 		[TestMethod]
 		public void Transform_NegativeIntToBinaryStringTest()
 		{
 			//Act
-			var baseTwo = Transform.IntegerToBinaryString(-5);
+			var sut = Transform.IntegerToBinaryString(-5);
 			//Assert
-			Assert.AreEqual("11111111111111111111111111111011", baseTwo);
+			Assert.AreEqual("11111111111111111111111111111011", sut);
 		}
 
 		[TestMethod]
 		[ExpectedException(typeof(InvalidCastException))]
 		public void Transform_NegativeIntToBinaryLongUnsupported_Test()
 		{
-			long baseTwo = Transform.IntegerToBinaryLong(-1);
+			Transform.IntegerToBinaryLong(-1);
 		}
 
 		[TestMethod]
 		[ExpectedException(typeof(InvalidCastException))]
 		public void Transform_NegativeIntToOctalLongUnsupported_Test()
 		{
-			long baseEight = Transform.IntegerToOctalLong(-1);
+			Transform.IntegerToOctalLong(-1);
 		}
 
 		[TestMethod]
 		public void Transform_NegativeHexStringWithOutPrefixTest()
 		{
 			//Act
-			var hexString = Transform.IntegerToHexString(-27, false);
+			var sut = Transform.IntegerToHexString(-27, false);
 			//Assert
-			Assert.IsFalse(hexString.StartsWith("0x"));
-			Assert.AreEqual("FFFFFFE5", hexString);
+			Assert.IsFalse(sut.StartsWith("0x"));
+			Assert.AreEqual("FFFFFFE5", sut);
 		}
 
 		[TestMethod]
 		public void Transform_NegativeHexPrefixTest()
 		{
 			//Act
-			var hexString = Transform.IntegerToHexString(-28, true);
+			var sut = Transform.IntegerToHexString(-28, true);
 			//Assert
-			Assert.IsTrue(hexString.StartsWith("0x"));
-			Assert.AreEqual("0xFFFFFFE4", hexString);
+			Assert.IsTrue(sut.StartsWith("0x"));
+			Assert.AreEqual("0xFFFFFFE4", sut);
 		}
 
 		[TestMethod]
 		public void Transform_NegativeIntToOctalStringTest()
 		{
 			//Act
-			var baseEight = Transform.IntegerToOctalString(-9);
+			var sut = Transform.IntegerToOctalString(-9);
 			//Assert
-			Assert.AreEqual("37777777767", baseEight);
+			Assert.AreEqual("37777777767", sut);
 		}
 
 		[TestMethod]

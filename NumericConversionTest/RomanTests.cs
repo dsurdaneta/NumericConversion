@@ -11,9 +11,8 @@ namespace DsuDev.NumericConversion.Test.Roman
 		[TestMethod]
 		public void RomanNumeral_IsNotNull()
 		{
-			// Arrange
-			var romanNumeral = new RomanNumeral();
 			// Act
+			var romanNumeral = new RomanNumeral();
 			// Assert
 			Assert.IsNotNull(romanNumeral);
 		}        
@@ -26,7 +25,6 @@ namespace DsuDev.NumericConversion.Test.Roman
 			var romanNumeral = new RomanNumeral();
 			// Act
 			romanNumeral.GetRomanValueFromArabicNum(5000);
-			// Assert
 		}
 
 		[TestMethod]
@@ -37,7 +35,6 @@ namespace DsuDev.NumericConversion.Test.Roman
 			var romanNumeral = new RomanNumeral();
 			// Act
 			romanNumeral.GetRomanValueFromArabicNum(-7);
-			// Assert
 		}
 
 		[TestMethod]

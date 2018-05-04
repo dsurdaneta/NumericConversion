@@ -45,7 +45,7 @@ namespace DsuDev.NumericConversion.Test.Digit
 			//Arrange
 			var digitName = new DigitName();
 			//Act
-			var sut = digitName.Translate(string.Empty);
+			digitName.Translate(string.Empty);
 		}
 
 		[TestMethod]
@@ -55,7 +55,7 @@ namespace DsuDev.NumericConversion.Test.Digit
 			//Arrange
 			var digitName = new DigitName();
 			//Act
-			var sut = digitName.Translate(null);
+			digitName.Translate(null);
 		}
 
 		[TestMethod]
@@ -76,7 +76,7 @@ namespace DsuDev.NumericConversion.Test.Digit
 			//Arrange
 			var digitName = new DigitName();
 			//Act
-			var sut = digitName.Translate("*#...");
+			digitName.Translate("*#...");
 		}
 
 		[TestMethod]
