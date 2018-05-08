@@ -33,10 +33,7 @@ namespace DsuDev.NumericConversion
 			return binaryLong;
 		}
 
-		public static string IntegerToBinaryString(int number)
-		{
-			return Convert.ToString(number, NumberBase.BinaryBase); 
-		}
+		public static string IntegerToBinaryString(int number) => Convert.ToString(number, NumberBase.BinaryBase);
 
 		public static long IntegerToOctalLong(int number)
 		{
@@ -54,21 +51,18 @@ namespace DsuDev.NumericConversion
 			return octalLong;
 		}
 
-		public static string IntegerToOctalString(int number)
-		{
-			return Convert.ToString(number, NumberBase.OctalBase);
-		}
+		public static string IntegerToOctalString(int number) => Convert.ToString(number, NumberBase.OctalBase);
 
 		/// <summary>
 		/// As most hex literals are handled with the 0x prefix, you can choose if you want 
 		/// the result string formatted with or without the prefix
 		/// </summary>
 		/// <param name="number"></param>
-		/// <param name="prefixed"></param>
+		/// <param name="withPrefix"></param>
 		/// <returns></returns>
-		public static string IntegerToHexString(int number, bool prefixed = true)
+		public static string IntegerToHexString(int number, bool withPrefix = true)
 		{
-			string hexNumber = prefixed ? NumberBase.HexPrefix : "";
+			string hexNumber = withPrefix ? NumberBase.HexPrefix : "";
 			hexNumber = hexNumber + number.ToString("X").ToUpper();
 			return hexNumber;
 		}
@@ -79,15 +73,9 @@ namespace DsuDev.NumericConversion
 			return Convert.ToInt32(binaryString, NumberBase.BinaryBase);
 		}
 
-		public static int BinaryStringToInt(string binaryNumber)
-		{
-			return Convert.ToInt32(binaryNumber, NumberBase.BinaryBase);
-		}
+		public static int BinaryStringToInt(string binaryNumber) => Convert.ToInt32(binaryNumber, NumberBase.BinaryBase);
 
-		public static int OctalStringToInt(string octalNumber)
-		{
-			return Convert.ToInt32(octalNumber, NumberBase.OctalBase);
-		}
+		public static int OctalStringToInt(string octalNumber) => Convert.ToInt32(octalNumber, NumberBase.OctalBase);
 
 		public static int HexStringToInt(string hexNumber)
 		{
@@ -96,11 +84,8 @@ namespace DsuDev.NumericConversion
 
 			return int.Parse(hexNumber, System.Globalization.NumberStyles.HexNumber);
 		}
-		
-		public static bool IsNumeric(string value)
-		{
-			return double.TryParse(value, out double result);
-		}
+
+		public static bool IsNumeric(string value) => double.TryParse(value, out double result);
 
 		#region Exception handling
 		internal static void ThrowBinaryOutOfRangeException(int number, string binaryConvertedString)

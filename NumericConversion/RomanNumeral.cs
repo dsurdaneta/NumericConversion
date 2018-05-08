@@ -17,7 +17,6 @@ namespace DsuDev.NumericConversion
 		public RomanNumeral()
 		{
 			Error = "";
-
 			BaseNumbers = new Dictionary<int, string>
 			{
 				{1, "I"},
@@ -69,8 +68,9 @@ namespace DsuDev.NumericConversion
 				Error = $"{nameof(romanNumeral)} should not be null nor empty";
 				throw new ArgumentNullException(ValidationMessage);
 			}
+
 			int total = 0, lastValue = 0;
-			if (!IsAnAllowedRomanNumeral(romanNumeral)) return total;
+			if (!IsRomanNumeralAllowed(romanNumeral)) return total;
 
 			for (int i = romanNumeral.Length - 1; i >= 0; i--)
 			{
@@ -88,7 +88,7 @@ namespace DsuDev.NumericConversion
 			return total;
 		}
 
-		private bool IsAnAllowedRomanNumeral(string romanNumeral)
+		private bool IsRomanNumeralAllowed(string romanNumeral)
 		{
 			var notAllowedValues = romanNumeral.Where(x => !BaseNumbers.ContainsValue(x.ToString())).ToList();
 
@@ -103,14 +103,14 @@ namespace DsuDev.NumericConversion
 
 		public List<string> RangeRomanList(int start, int count)
 		{
-			List<string> romancollection = new List<string>();
+			List<string> romanNumeralCollection = new List<string>();
 
 			for(int i = 0; i < count; i++)
 			{
-				romancollection.Add(GetRomanValueFromArabicNum(start + i));
+				romanNumeralCollection.Add(GetRomanValueFromArabicNum(start + i));
 			}
 
-			return romancollection;
+			return romanNumeralCollection;
 		}
 	}
 }
