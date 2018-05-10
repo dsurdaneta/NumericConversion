@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using DsuDev.NumericConversion.Constants;
 
 namespace DsuDev.NumericConversion
@@ -47,6 +49,19 @@ namespace DsuDev.NumericConversion
 			return result;
 		}
 
+		/// <summary>
+		/// Gets the number related to the FizzBuzz words configuration
+		/// </summary>
+		/// <param name="word"></param>
+		/// <returns></returns>
+		public int GetNumberFromFizzBuzz(string word)
+		{
+			if (string.IsNullOrEmpty(word))
+				throw new ArgumentNullException();
+
+			return _wordzzDictionary.First(x => x.Value.ToLower() == word.ToLower()).Key;
+		}
+		
 		/// <summary>
 		/// Generates a list of FizzBuzzWhizz numbers
 		/// </summary>

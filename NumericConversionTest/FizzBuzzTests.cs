@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using DsuDev.NumericConversion.Constants;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,9 +12,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 		public void FizzBuzz_IsNotNull()
 		{
 			// Arrange
-			var result = new FizzBuzz();
+			var sut = new FizzBuzz();
 			// Assert
-			Assert.IsNotNull(result);
+			Assert.IsNotNull(sut);
 		}		      
 
 		[TestMethod]
@@ -22,9 +23,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
 			// Act
-			var result = fizzBuzz.GetFizzBuzz(3);			
+			var sut = fizzBuzz.GetFizzBuzz(3);			
 			// Assert
-			Assert.AreEqual(Wordzz.Fizz, result);
+			Assert.AreEqual(Wordzz.Fizz, sut);
 		}
 
 		[TestMethod]
@@ -33,9 +34,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
 			// Act
-			var result = fizzBuzz.GetFizzBuzz(5);
+			var sut = fizzBuzz.GetFizzBuzz(5);
 			// Assert
-			Assert.AreEqual(Wordzz.Buzz, result);
+			Assert.AreEqual(Wordzz.Buzz, sut);
 		}
 
 		[TestMethod]
@@ -45,9 +46,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			var fizzBuzz = new FizzBuzz();
 			var expected = Wordzz.Fizz + Wordzz.Buzz;
 			// Act
-			var result = fizzBuzz.GetFizzBuzz(15);
+			var sut = fizzBuzz.GetFizzBuzz(15);
 			// Assert
-			Assert.AreEqual(expected, result);
+			Assert.AreEqual(expected, sut);
 		}
 
 		[TestMethod]
@@ -56,9 +57,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
 			// Act
-			var result = fizzBuzz.GetFizzBuzz(7);
+			var sut = fizzBuzz.GetFizzBuzz(7);
 			// Assert
-			Assert.AreEqual(Wordzz.Whizz, result);
+			Assert.AreEqual(Wordzz.Whizz, sut);
 		}
 
 		[TestMethod]
@@ -68,9 +69,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			var fizzBuzz = new FizzBuzz();
 			var expected = Wordzz.Fizz + Wordzz.Whizz;
 			// Act
-			var result = fizzBuzz.GetFizzBuzz(21);
+			var sut = fizzBuzz.GetFizzBuzz(21);
 			// Assert
-			Assert.AreEqual(expected, result);
+			Assert.AreEqual(expected, sut);
 		}
 
 		[TestMethod]
@@ -80,9 +81,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			var fizzBuzz = new FizzBuzz();
 			var expected = Wordzz.Buzz + Wordzz.Whizz;
 			// Act
-			var result = fizzBuzz.GetFizzBuzz(35);
+			var sut = fizzBuzz.GetFizzBuzz(35);
 			// Assert
-			Assert.AreEqual(expected, result);
+			Assert.AreEqual(expected, sut);
 		}
 
 		[TestMethod]
@@ -92,9 +93,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			var fizzBuzz = new FizzBuzz();
 			var expected = Wordzz.Fizz + Wordzz.Buzz + Wordzz.Whizz;
 			// Act
-			var result = fizzBuzz.GetFizzBuzz(105);
+			var sut = fizzBuzz.GetFizzBuzz(105);
 			// Assert
-			Assert.AreEqual(expected, result);
+			Assert.AreEqual(expected, sut);
 		}
 
 		[TestMethod]
@@ -103,9 +104,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
 			// Act
-			var result = fizzBuzz.GetFizzBuzz(11);
+			var sut = fizzBuzz.GetFizzBuzz(11);
 			// Assert
-			Assert.AreEqual("11", result);
+			Assert.AreEqual("11", sut);
 		}
 
 		[TestMethod]
@@ -114,9 +115,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
 			// Act			
-			var result = fizzBuzz.GetFizzBuzz(0);
+			var sut = fizzBuzz.GetFizzBuzz(0);
 			// Assert
-			Assert.AreEqual("0", result);
+			Assert.AreEqual("0", sut);
 		}
 
 		[TestMethod]
@@ -125,9 +126,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
 			// Act
-			var result = fizzBuzz.GetFizzBuzz(-10);
+			var sut = fizzBuzz.GetFizzBuzz(-10);
 			// Assert
-			Assert.AreEqual(Wordzz.Buzz, result);
+			Assert.AreEqual(Wordzz.Buzz, sut);
 		}
 		
 		[TestMethod]
@@ -136,9 +137,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			// Arrange
 			var fizzBuzz = new FizzBuzz();
 			// Act
-			var result = fizzBuzz.GetFizzBuzz(-8);
+			var sut = fizzBuzz.GetFizzBuzz(-8);
 			// Assert
-			Assert.AreEqual("-8", result);
+			Assert.AreEqual("-8", sut);
 		}
 
 		[TestMethod]
@@ -148,9 +149,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			var fizzBuzz = new FizzBuzz();
 			var expected = new List<string>();
 			// Act
-			var result = fizzBuzz.GenerateFizzBuzzList(0);
+			var sut = fizzBuzz.GenerateFizzBuzzList(0);
 			// Assert
-			CollectionAssert.AreEqual(expected, result);
+			CollectionAssert.AreEqual(expected, sut);
 		}
 
 		[TestMethod]
@@ -160,9 +161,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			var fizzBuzz = new FizzBuzz();
 			var expected = new List<string> { "0" };
 			// Act
-			var result = fizzBuzz.GenerateFizzBuzzList(0, true);
+			var sut = fizzBuzz.GenerateFizzBuzzList(0, true);
 			// Assert
-			CollectionAssert.AreEqual(expected, result);
+			CollectionAssert.AreEqual(expected, sut);
 		}
 
 		[TestMethod]
@@ -175,9 +176,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 				"1", "2", Wordzz.Fizz, "4", Wordzz.Buzz, Wordzz.Fizz, Wordzz.Whizz, "8", Wordzz.Fizz, Wordzz.Buzz
 			};
 			// Act
-			var result = fizzBuzz.GenerateFizzBuzzList(10);
+			var sut = fizzBuzz.GenerateFizzBuzzList(10);
 			// Assert
-			CollectionAssert.AreEqual(expected, result);
+			CollectionAssert.AreEqual(expected, sut);
 		}
 
 		[TestMethod]
@@ -190,9 +191,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 				"0", "1", "2", Wordzz.Fizz, "4", Wordzz.Buzz, Wordzz.Fizz, Wordzz.Whizz, "8", Wordzz.Fizz, Wordzz.Buzz
 			};
 			// Act
-			var result = fizzBuzz.GenerateFizzBuzzList(10, true);
+			var sut = fizzBuzz.GenerateFizzBuzzList(10, true);
 			// Assert
-			CollectionAssert.AreEqual(expected, result);
+			CollectionAssert.AreEqual(expected, sut);
 		}
 
 		[TestMethod]
@@ -205,9 +206,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 				"-1", "-2", Wordzz.Fizz, "-4", Wordzz.Buzz, Wordzz.Fizz, Wordzz.Whizz, "-8", Wordzz.Fizz, Wordzz.Buzz
 			};
 			// Act
-			var result = fizzBuzz.GenerateNegativeFizzBuzzList(-10);
+			var sut = fizzBuzz.GenerateNegativeFizzBuzzList(-10);
 			// Assert
-			CollectionAssert.AreEqual(expected, result);
+			CollectionAssert.AreEqual(expected, sut);
 		}
 
 		[TestMethod]
@@ -220,9 +221,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 				"0", "-1", "-2", Wordzz.Fizz, "-4", Wordzz.Buzz, Wordzz.Fizz, Wordzz.Whizz, "-8", Wordzz.Fizz, Wordzz.Buzz
 			};
 			// Act
-			var result = fizzBuzz.GenerateNegativeFizzBuzzList(-10, true);
+			var sut = fizzBuzz.GenerateNegativeFizzBuzzList(-10, true);
 			// Assert
-			CollectionAssert.AreEqual(expected, result);
+			CollectionAssert.AreEqual(expected, sut);
 		}
 
 		[TestMethod]
@@ -235,9 +236,9 @@ namespace DsuDev.NumericConversion.Test.Fizz
 				Wordzz.Buzz, Wordzz.Fizz, "-8", Wordzz.Whizz, Wordzz.Fizz, Wordzz.Buzz, "-4", Wordzz.Fizz, "-2", "-1"
 			};
 			// Act
-			var result = fizzBuzz.GenerateNegativeFizzBuzzList(-10, reverse: false);
+			var sut = fizzBuzz.GenerateNegativeFizzBuzzList(-10, reverse: false);
 			// Assert
-			CollectionAssert.AreEqual(expected, result);
+			CollectionAssert.AreEqual(expected, sut);
 		}
 		
 		[TestMethod]
@@ -253,9 +254,62 @@ namespace DsuDev.NumericConversion.Test.Fizz
 				Wordzz.Fizz + Wordzz.Buzz
 			};
 			// Act
-			var result = fizzBuzz.GenerateFizzBuzzList(30);
+			var sut = fizzBuzz.GenerateFizzBuzzList(30);
 			// Assert
-			CollectionAssert.AreEqual(expected, result);
+			CollectionAssert.AreEqual(expected, sut);
+		}
+
+		[TestMethod]
+		public void FizzBuzz_GetFizzNumber()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			//Act
+			var sut = fizzBuzz.GetNumberFromFizzBuzz(Wordzz.Fizz);
+			//Assert
+			Assert.AreEqual(3, sut);
+		}
+
+		[TestMethod]
+		public void FizzBuzz_GetBuzzNumber()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			//Act
+			var sut = fizzBuzz.GetNumberFromFizzBuzz(Wordzz.Buzz);
+			//Assert
+			Assert.AreEqual(5, sut);
+		}
+
+		[TestMethod]
+		public void FizzBuzz_GetWhizzNumber()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			//Act
+			var sut = fizzBuzz.GetNumberFromFizzBuzz(Wordzz.Whizz);
+			//Assert
+			Assert.AreEqual(7, sut);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void FizzBuzz_GetFizzBuzzNumberNullException()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			//Act
+			fizzBuzz.GetNumberFromFizzBuzz(string.Empty);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(InvalidOperationException))]
+		public void FizzBuzz_GetFizzBuzzNumberInvalidOperation()
+		{
+			// Arrange
+			var fizzBuzz = new FizzBuzz();
+			//Act
+			fizzBuzz.GetNumberFromFizzBuzz("HelloWord");
 		}
 	}
 }
