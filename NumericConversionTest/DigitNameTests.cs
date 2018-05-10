@@ -26,6 +26,17 @@ namespace DsuDev.NumericConversion.Test.Digit
 			//Assert
 			Assert.AreEqual("Nine", sut);
 		}
+		
+		[TestMethod]
+		public void DigitName_Translate0()
+		{
+			//Arrange
+			var digitName = new DigitName();
+			//Act
+			var sut = digitName.Translate(0);
+			//Assert
+			Assert.AreEqual("Zero", sut);
+		}
 
 		[TestMethod]
 		public void DigitName_TranslateFour()
@@ -36,6 +47,17 @@ namespace DsuDev.NumericConversion.Test.Digit
 			var sut = digitName.Translate("Four");
 			//Assert
 			Assert.AreEqual(4, sut);
+		}
+
+		[TestMethod]
+		public void DigitName_TranslateZero()
+		{
+			//Arrange
+			var digitName = new DigitName();
+			//Act
+			var sut = digitName.Translate("Zero");
+			//Assert
+			Assert.AreEqual(0, sut);
 		}
 
 		[TestMethod]
@@ -114,6 +136,42 @@ namespace DsuDev.NumericConversion.Test.Digit
 			var sut = digitName.GetDigitNameList(123);
 			//Assert
 			CollectionAssert.AreEqual(expected, sut);
+		}
+
+		[TestMethod]
+		public void DigitName_GetNumberFromDigitNameList()
+		{
+			//Arrange
+			var digitName = new DigitName();
+			var digitNameList = new List<string>
+			{
+				"Two","Six","Eight"
+			};
+			//Act
+			var sut = digitName.GetNumberFromDigitNameList(digitNameList);
+			//Assert
+			Assert.AreEqual(268, sut);
+		}
+
+		[TestMethod]
+		public void DigitName_GetNumberFromDigitNameString()
+		{
+			//Arrange
+			var digitName = new DigitName();
+			//Act
+			var sut = digitName.GetNumberFromDigitNameString("SevenZeroFive");
+			//Assert
+			Assert.AreEqual(705, sut);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(InvalidOperationException))]
+		public void DigitName_InvalidStringOfDigits()
+		{
+			//Arrange
+			var digitName = new DigitName();
+			//Act
+			digitName.GetNumberFromDigitNameString("Hello");
 		}
 	}
 }

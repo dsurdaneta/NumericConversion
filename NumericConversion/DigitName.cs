@@ -38,7 +38,7 @@ namespace DsuDev.NumericConversion
 		{
 			var digitPair = DigitsWords.First(x => string.Equals(x.Value.ToLower(), digitWord.ToLower(), StringComparison.Ordinal));
 
-			if (digitPair.Key > 0 && !string.IsNullOrEmpty(digitPair.Value))
+			if (digitPair.Key >= 0 && !string.IsNullOrEmpty(digitPair.Value))
 				return digitPair.Key;
 
 			throw new InvalidCastException("Digit could not be translated.");
@@ -71,5 +71,39 @@ namespace DsuDev.NumericConversion
 
 			return digitNames;
 		}
+
+		public int GetNumberFromDigitNameString(string digitNames)
+		{
+			List<string> nameList = new List<string>();
+			string aux = digitNames; 
+
+			while (!string.IsNullOrEmpty(aux))
+			{
+				string digitName = DigitsWords.First(x => aux.StartsWith(x.Value)).Value;
+
+				if(string.IsNullOrEmpty(digitName))
+					throw new InvalidCastException("Digit could not be translated.");
+
+				nameList.Add(digitName);
+
+				aux = aux.Remove(0, digitName.Length);
+			}
+
+			return GetNumberFromDigitNameList(nameList);
+		}
+
+		public int GetNumberFromDigitNameList(List<string> digitNameList)
+		{
+			string fullNumber = string.Empty;
+
+			foreach (var item in digitNameList)
+			{
+				fullNumber += Translate(item);
+			}
+
+			return Convert.ToInt32(fullNumber);
+		}
+
+		
 	}
 }
