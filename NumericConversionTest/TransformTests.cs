@@ -28,7 +28,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 		public void Transform_NotANumber()
 		{
 			//Act
-			var sut = Transform.IsNumeric("Hello");
+			var sut = Transform.IsNumeric("HelloWord");
 			//Assert
 			Assert.IsFalse(sut);
 		}

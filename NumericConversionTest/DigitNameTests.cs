@@ -171,7 +171,7 @@ namespace DsuDev.NumericConversion.Test.Digit
 			//Arrange
 			var digitName = new DigitName();
 			//Act
-			digitName.GetNumberFromDigitNameString("Hello");
+			digitName.GetNumberFromDigitNameString("HelloWord");
 		}
 	}
 }

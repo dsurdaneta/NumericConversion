@@ -90,7 +90,7 @@ namespace DsuDev.NumericConversion
 		#region Exception handling
 		internal static void ThrowBinaryOutOfRangeException(int number, string binaryConvertedString)
 		{
-			Error = $"number ({number}) length not supported, it has to be less than {NumberBase.BinaryStringMaxLength} digits, current binary length {binaryConvertedString.Length}";
+			Error = $"Number ({number}) length not supported, it has to be less than {NumberBase.BinaryStringMaxLength} digits, current binary length {binaryConvertedString.Length}";
 			throw new ArgumentOutOfRangeException(nameof(number), number, Error);
 		}
 
