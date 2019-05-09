@@ -37,7 +37,7 @@ namespace DsuDev.NumericConversion
 
 		public int Translate(string digitWord)
 		{
-			var digitPair = DigitsWords.First(x => string.Equals(x.Value.ToLower(), digitWord.ToLower(), StringComparison.Ordinal));
+			var digitPair = DigitsWords.FirstOrDefault(x => string.Equals(x.Value.ToLower(), digitWord.ToLower(), StringComparison.Ordinal));
 
 			if (digitPair.Key >= 0 && !string.IsNullOrEmpty(digitPair.Value))
 				return digitPair.Key;
@@ -104,7 +104,5 @@ namespace DsuDev.NumericConversion
 
 			return Convert.ToInt32(fullNumber);
 		}
-
-		
 	}
 }

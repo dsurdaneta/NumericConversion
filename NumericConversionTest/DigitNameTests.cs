@@ -61,7 +61,7 @@ namespace DsuDev.NumericConversion.Test.Digit
 		}
 
 		[TestMethod]
-		[ExpectedException(typeof(InvalidOperationException))]
+		[ExpectedException(typeof(InvalidCastException))]
 		public void DigitName_TranslateEmptyString()
 		{
 			//Arrange
@@ -92,7 +92,7 @@ namespace DsuDev.NumericConversion.Test.Digit
 		}
 
 		[TestMethod]
-		[ExpectedException(typeof(InvalidOperationException))]
+		[ExpectedException(typeof(InvalidCastException))]
 		public void DigitName_TranslateNotAlphanumeric()
 		{
 			//Arrange
