@@ -7,8 +7,8 @@
     <ProjectGuid>{EF7523FB-5264-4883-A224-7193644D9C5B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NumericConversionTest</RootNamespace>
-    <AssemblyName>NumericConversionTest</AssemblyName>
+    <RootNamespace>DsuDev.NumericConversion.Test</RootNamespace>
+    <AssemblyName>DsuDev.NumericConversion.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -49,11 +49,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TransformTests.cs" />
+    <Compile Include="Convert\TransformTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RomanTests.cs" />
-    <Compile Include="FizzBuzzTests.cs" />
-    <Compile Include="DigitNameTests.cs" />
+    <Compile Include="Roman\RomanTests.cs" />
+    <Compile Include="Fizz\FizzBuzzTests.cs" />
+    <Compile Include="Digit\DigitNameTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

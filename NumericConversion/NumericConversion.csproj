@@ -7,8 +7,8 @@
     <ProjectGuid>{30522F51-722B-4D2D-A676-104743B2BECC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NumericConversion</RootNamespace>
-    <AssemblyName>NumericConversion</AssemblyName>
+    <RootNamespace>DsuDev.NumericConversion</RootNamespace>
+    <AssemblyName>DsuDev.NumericConversion</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
