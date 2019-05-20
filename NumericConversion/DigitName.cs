@@ -76,18 +76,13 @@ namespace DsuDev.NumericConversion
 		public int GetNumberFromDigitNameString(string digitNames)
 		{
 			List<string> nameList = new List<string>();
-			string aux = digitNames; 
+			string name = digitNames; 
 
-			while (!string.IsNullOrEmpty(aux))
+			while (!string.IsNullOrEmpty(name))
 			{
-				string digitName = DigitsWords.First(x => aux.StartsWith(x.Value)).Value;
-
-				if(string.IsNullOrEmpty(digitName))
-					throw new InvalidCastException(notTranslatedError);
-
+				string digitName = DigitsWords.First(x => name.StartsWith(x.Value)).Value;
 				nameList.Add(digitName);
-
-				aux = aux.Remove(0, digitName.Length);
+				name = name.Remove(0, digitName.Length);
 			}
 
 			return GetNumberFromDigitNameList(nameList);
