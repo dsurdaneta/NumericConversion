@@ -196,7 +196,30 @@ namespace DsuDev.NumericConversion.Test.Fizz
 			CollectionAssert.AreEqual(expected, sut);
 		}
 
-		[TestMethod]
+	    [TestMethod]
+	    public void FizzBuzz_InvertedGenerateListCalls()
+	    {
+	        // Arrange
+	        var fizzBuzz = new FizzBuzz();
+	        var expectedPositiveList = new List<string>
+	        {
+	            "1", "2", Wordzz.Fizz, "4", Wordzz.Buzz, Wordzz.Fizz, Wordzz.Whizz, "8", Wordzz.Fizz, Wordzz.Buzz
+	        };
+	        var expectedNegativeList = new List<string>
+	        {
+	            "-1", "-2", Wordzz.Fizz, "-4", Wordzz.Buzz, Wordzz.Fizz, Wordzz.Whizz, "-8", Wordzz.Fizz, Wordzz.Buzz
+	        };
+
+	        // Act
+	        var list1 = fizzBuzz.GenerateFizzBuzzList(-10);
+	        var list2 = fizzBuzz.GenerateNegativeFizzBuzzList(10);
+
+            // Assert
+            CollectionAssert.AreEqual(expectedNegativeList, list1);
+            CollectionAssert.AreEqual(expectedPositiveList, list2);
+        }
+
+	    [TestMethod]
 		public void FizzBuzz_Negative10List()
 		{
 			// Arrange
