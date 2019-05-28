@@ -7,7 +7,7 @@ namespace DsuDev.NumericConversion
 {
 	public class DigitName
 	{
-	    private const string notTranslatedError = "Digit could not be translated.";
+	    private const string NotTranslatedError = "Digit could not be translated.";
 		protected readonly Dictionary<int, string> DigitsWords;
 
 		public DigitName()
@@ -42,7 +42,7 @@ namespace DsuDev.NumericConversion
 			if (digitPair.Key >= 0 && !string.IsNullOrEmpty(digitPair.Value))
 				return digitPair.Key;
 
-			throw new InvalidCastException(notTranslatedError);
+			throw new InvalidCastException(NotTranslatedError);
 		}
 
 		public string TranslateSeveralDigits(int fullNumber)
