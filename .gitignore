@@ -188,3 +188,7 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 /.vs/NumericConversion/v15/Server/sqlite3
+*.testlog
+*.lock
+*.ide
+.vs/NumericConversion/v16/TestStore/0/testlog.manifest
