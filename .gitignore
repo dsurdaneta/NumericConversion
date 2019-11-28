@@ -192,3 +192,4 @@ ModelManifest.xml
 *.lock
 *.ide
 .vs/NumericConversion/v16/TestStore/0/testlog.manifest
+/.vs/NumericConversion/v16/Server/sqlite3
