@@ -75,8 +75,15 @@ namespace DsuDev.NumericConversion.Test.Convert
 			//Assert
 			Assert.AreEqual("11", sut);
 		}
-				
-		[TestMethod]
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void Transform_IntToOctalLongTooLongExceptionTest()
+        {
+            Transform.IntegerToOctalLong(2132932135);
+        }
+
+        [TestMethod]
 		public void Transform_HexStringWithOutPrefixTest()
 		{
 			//Act
