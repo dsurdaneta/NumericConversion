@@ -32,12 +32,14 @@ namespace DsuDev.NumericConversion
 			if (digitNumber < 0 || digitNumber > 9)
 				return string.Empty;
 
-			return DigitsWords.First(x => x.Key == digitNumber).Value;
+			return this.DigitsWords.First(x => x.Key == digitNumber).Value;
 		}
 
 		public int Translate(string digitWord)
 		{
-			var digitPair = DigitsWords.FirstOrDefault(x => string.Equals(x.Value.ToLower(), digitWord.ToLower(), StringComparison.Ordinal));
+			var digitPair = this.DigitsWords.FirstOrDefault(
+                x => string.Equals(x.Value.ToLower(), digitWord.ToLower(), StringComparison.Ordinal)
+                );
 
 			if (digitPair.Key >= 0 && !string.IsNullOrEmpty(digitPair.Value))
 				return digitPair.Key;
@@ -80,12 +82,12 @@ namespace DsuDev.NumericConversion
 
 			while (!string.IsNullOrEmpty(name))
 			{
-				string digitName = DigitsWords.First(x => name.StartsWith(x.Value)).Value;
+				string digitName = this.DigitsWords.First(x => name.StartsWith(x.Value)).Value;
 				nameList.Add(digitName);
 				name = name.Remove(0, digitName.Length);
 			}
 
-			return GetNumberFromDigitNameList(nameList);
+			return this.GetNumberFromDigitNameList(nameList);
 		}
 
 		public int GetNumberFromDigitNameList(List<string> digitNameList)
@@ -94,7 +96,7 @@ namespace DsuDev.NumericConversion
 
 			foreach (var item in digitNameList)
 			{
-				fullNumber += Translate(item);
+				fullNumber += this.Translate(item);
 			}
 
 			return Convert.ToInt32(fullNumber);

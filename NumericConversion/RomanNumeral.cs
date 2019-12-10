@@ -40,12 +40,12 @@ namespace DsuDev.NumericConversion
 			if (number < 1 || number >= Roman.MaxNumber)
 			{
 				Error = $"{number} must be a positive integer of value less than {Roman.MaxNumber}";
-				throw new ArgumentOutOfRangeException(ValidationMessage);
+				throw new ArgumentOutOfRangeException(this.ValidationMessage);
 			}
 
 			string value = "";
 			int current = number, i = 0;
-			var keys = BaseNumbers.AsEnumerable().Reverse().ToArray();
+			var keys = this.BaseNumbers.AsEnumerable().Reverse().ToArray();
 
 			while (current > 0)
 			{
@@ -66,16 +66,16 @@ namespace DsuDev.NumericConversion
 			if (string.IsNullOrEmpty(romanNumeral))
 			{
 				Error = $"{nameof(romanNumeral)} should not be null nor empty";
-				throw new ArgumentNullException(ValidationMessage);
+				throw new ArgumentNullException(this.ValidationMessage);
 			}
 
 			int total = 0, lastValue = 0;
-			if (!IsRomanNumeralAllowed(romanNumeral)) return total;
+			if (!this.IsRomanNumeralAllowed(romanNumeral)) return total;
 
 			for (int i = romanNumeral.Length - 1; i >= 0; i--)
 			{
 				string currentNumeral = romanNumeral[i].ToString();
-				int currentValue = BaseNumbers.First(x => x.Value == currentNumeral).Key;
+				int currentValue = this.BaseNumbers.First(x => x.Value == currentNumeral).Key;
 
 				if (currentValue < lastValue)
 					total -= currentValue;
@@ -90,12 +90,12 @@ namespace DsuDev.NumericConversion
 
 		private bool IsRomanNumeralAllowed(string romanNumeral)
 		{
-			var notAllowedValues = romanNumeral.Where(x => !BaseNumbers.ContainsValue(x.ToString())).ToList();
+			var notAllowedValues = romanNumeral.Where(x => !this.BaseNumbers.ContainsValue(x.ToString())).ToList();
 
 			if (notAllowedValues.Count > 0)
 			{
 				Error = $"{romanNumeral} contains not allowed characters, such as {notAllowedValues.FirstOrDefault().ToString()}";
-				throw new KeyNotFoundException(ValidationMessage);
+				throw new KeyNotFoundException(this.ValidationMessage);
 			}
 
 			return true;
@@ -107,7 +107,7 @@ namespace DsuDev.NumericConversion
 
 			for(int i = 0; i < count; i++)
 			{
-				romanNumeralCollection.Add(GetRomanValueFromArabicNum(start + i));
+				romanNumeralCollection.Add(this.GetRomanValueFromArabicNum(start + i));
 			}
 
 			return romanNumeralCollection;

@@ -26,7 +26,7 @@ namespace DsuDev.NumericConversion
 
 		public string GetFizzBuzz(int number)
 		{
-			string result = TranslateToWords(number);
+			string result = this.TranslateToWords(number);
 
 			if (string.IsNullOrEmpty(result))
 				result = number.ToString();
@@ -41,7 +41,7 @@ namespace DsuDev.NumericConversion
 
 			string result = "";						
 
-			foreach (KeyValuePair<int, string> item in _wordzzDictionary)
+			foreach (KeyValuePair<int, string> item in this._wordzzDictionary)
 			{
 				if (number % item.Key == 0)
 					result += item.Value;
@@ -59,7 +59,7 @@ namespace DsuDev.NumericConversion
 			if (string.IsNullOrEmpty(word))
 				throw new ArgumentNullException();
 
-			return _wordzzDictionary.First(x => x.Value.ToLower() == word.ToLower()).Key;
+			return this._wordzzDictionary.First(x => x.Value.ToLower() == word.ToLower()).Key;
 		}
 		
 		/// <summary>
@@ -71,14 +71,14 @@ namespace DsuDev.NumericConversion
 		public List<string> GenerateFizzBuzzList(int number, bool includeZero = false)
 		{
 			if (number < 0)
-				return GenerateNegativeFizzBuzzList(number, includeZero);
+				return this.GenerateNegativeFizzBuzzList(number, includeZero);
 				
 			List<string> words = new List<string>();
 			if (includeZero)
 				words.Add("0");			
 
 			for (int i = 0; i < number; i++)
-				words.Add(GetFizzBuzz(i + 1));
+				words.Add(this.GetFizzBuzz(i + 1));
 
 			return words;
 		}
@@ -93,11 +93,11 @@ namespace DsuDev.NumericConversion
 		public List<string> GenerateNegativeFizzBuzzList(int number, bool includeZero = false, bool reverse = true)
 		{			
 			if (number > 0)
-				return GenerateFizzBuzzList(number, includeZero);
+				return this.GenerateFizzBuzzList(number, includeZero);
 						
 			List<string> words = new List<string>();
 			for (int i = number; i < 0; i++)
-				words.Add(GetFizzBuzz(i));
+				words.Add(this.GetFizzBuzz(i));
 
 			if (includeZero)
 				words.Add("0");			
