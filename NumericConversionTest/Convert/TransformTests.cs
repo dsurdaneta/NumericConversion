@@ -1,4 +1,5 @@
 ﻿using System;
+using DsuDev.NumericConversion.Constants;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DsuDev.NumericConversion.Test.Convert
@@ -89,7 +90,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 			//Act
 			var sut = Transform.IntegerToHexString(27, false);
 			//Assert
-			Assert.IsFalse(sut.StartsWith("0x"));
+			Assert.IsFalse(sut.StartsWith(NumberBase.HexPrefix));
 			Assert.AreEqual("1B", sut);
 		}
 
@@ -99,7 +100,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 			//Act
 			var sut = Transform.IntegerToHexString(28, true);
 			//Assert
-			Assert.IsTrue(sut.StartsWith("0x"));
+			Assert.IsTrue(sut.StartsWith(NumberBase.HexPrefix));
 			Assert.AreEqual("0x1C", sut);
 		}
 
@@ -141,7 +142,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 			//Act
 			var sut = Transform.IntegerToHexString(-27, false);
 			//Assert
-			Assert.IsFalse(sut.StartsWith("0x"));
+			Assert.IsFalse(sut.StartsWith(NumberBase.HexPrefix));
 			Assert.AreEqual("FFFFFFE5", sut);
 		}
 
@@ -151,7 +152,7 @@ namespace DsuDev.NumericConversion.Test.Convert
 			//Act
 			var sut = Transform.IntegerToHexString(-28, true);
 			//Assert
-			Assert.IsTrue(sut.StartsWith("0x"));
+			Assert.IsTrue(sut.StartsWith(NumberBase.HexPrefix));
 			Assert.AreEqual("0xFFFFFFE4", sut);
 		}
 

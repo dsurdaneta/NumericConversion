@@ -1,4 +1,7 @@
-﻿namespace DsuDev.NumericConversion.Constants
+﻿using System.Runtime.CompilerServices;
+
+[assembly:InternalsVisibleTo("DsuDev.NumericConversion.Test")]
+namespace DsuDev.NumericConversion.Constants
 {
 	public class NumberBase
 	{
