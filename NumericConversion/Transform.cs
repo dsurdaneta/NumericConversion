@@ -23,7 +23,7 @@ namespace DsuDev.NumericConversion
 				ThrowNegativeBinaryStringUnsupported(number);
 
 			long binaryLong = -1;
-			string binaryString = Convert.ToString(number, NumberBase.BinaryBase);
+			string binaryString = IntegerToBinaryString(number);
 
 			if (binaryString.Length < NumberBase.BinaryStringMaxLength)
 				binaryLong = Convert.ToInt64(binaryString);
@@ -41,10 +41,10 @@ namespace DsuDev.NumericConversion
 				ThrowNegativeBinaryStringUnsupported(number);
 
 			long octalLong = -1;
-			string binaryString = Convert.ToString(number, NumberBase.BinaryBase);
+			string binaryString = IntegerToBinaryString(number);
 
-			if (binaryString.Length < NumberBase.BinaryStringMaxLength)
-				octalLong = Convert.ToInt64(Convert.ToString(number, NumberBase.OctalBase));
+            if (binaryString.Length < NumberBase.BinaryStringMaxLength)
+				octalLong = Convert.ToInt64(IntegerToOctalString(number));
 			else
 				ThrowBinaryOutOfRangeException(number, binaryString);
 
