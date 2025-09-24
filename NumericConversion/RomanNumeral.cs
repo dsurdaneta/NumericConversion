@@ -63,7 +63,7 @@ namespace DsuDev.NumericConversion
 
 		public int GetArabicFromRoman(string romanNumeral)
 		{
-			if (string.IsNullOrEmpty(romanNumeral))
+			if (string.IsNullOrWhiteSpace(romanNumeral))
 			{
 				Error = $"{nameof(romanNumeral)} should not be null nor empty";
 				throw new ArgumentNullException(this.ValidationMessage);
@@ -94,7 +94,7 @@ namespace DsuDev.NumericConversion
 
 			if (notAllowedValues.Count > 0)
 			{
-				Error = $"{romanNumeral} contains not allowed characters, such as {notAllowedValues.FirstOrDefault().ToString()}";
+				Error = $"{romanNumeral} contains not allowed characters, such as {notAllowedValues.FirstOrDefault()}";
 				throw new KeyNotFoundException(this.ValidationMessage);
 			}
 

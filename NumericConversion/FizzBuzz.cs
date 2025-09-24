@@ -28,7 +28,7 @@ namespace DsuDev.NumericConversion
 		{
 			string result = this.TranslateToWords(number);
 
-			if (string.IsNullOrEmpty(result))
+			if (string.IsNullOrWhiteSpace(result))
 				result = number.ToString();
 
 			return result;
@@ -56,7 +56,7 @@ namespace DsuDev.NumericConversion
 		/// <returns></returns>
 		public int GetNumberFromFizzBuzz(string word)
 		{
-			if (string.IsNullOrEmpty(word))
+			if (string.IsNullOrWhiteSpace(word))
 				throw new ArgumentNullException();
 
 			return this._wordzzDictionary.First(x => x.Value.ToLower() == word.ToLower()).Key;

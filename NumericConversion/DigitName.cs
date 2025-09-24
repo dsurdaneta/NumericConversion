@@ -41,7 +41,7 @@ namespace DsuDev.NumericConversion
                 x => string.Equals(x.Value.ToLower(), digitWord.ToLower(), StringComparison.Ordinal)
                 );
 
-			if (digitPair.Key >= 0 && !string.IsNullOrEmpty(digitPair.Value))
+			if (digitPair.Key >= 0 && !string.IsNullOrWhiteSpace(digitPair.Value))
 				return digitPair.Key;
 
 			throw new InvalidCastException(NotTranslatedError);
@@ -80,7 +80,7 @@ namespace DsuDev.NumericConversion
 			List<string> nameList = new List<string>();
 			string name = digitNames; 
 
-			while (!string.IsNullOrEmpty(name))
+			while (!string.IsNullOrWhiteSpace(name))
 			{
 				string digitName = this.DigitsWords.First(x => name.StartsWith(x.Value)).Value;
 				nameList.Add(digitName);
