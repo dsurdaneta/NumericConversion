@@ -193,3 +193,5 @@ ModelManifest.xml
 *.ide
 .vs/NumericConversion/v16/TestStore/0/testlog.manifest
 /.vs/NumericConversion/v16/Server/sqlite3
+/.vs/NumericConversion/v17
+/.vs/NumericConversion
